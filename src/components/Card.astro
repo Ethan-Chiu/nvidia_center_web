@@ -9,29 +9,30 @@ interface Props {
 const { href, title, body, imageSrc } = Astro.props;
 ---
 
-<li class="link-card flex flex-row">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-		<img
-			class="relative z-10 w-full rounded-lg transition-all group-hover:-translate-x-3"
-			src={imageSrc}
-			alt={title}
-		/>
+<li class="link-card">
+	<a href={href} class="w-full bg-white leading-normal rounded-md opacity-80">
+		<div class="flex flex-col justify-center items-center sm:flex-row sm:items-start">
+			<img
+				class="object-cover h-40 w-32 rounded-md shadow-2xl transform -translate-y-4 border-4 border-zinc-800"
+				src={imageSrc}
+				alt={title}
+			/>
+			<div class="grow px-4 flex-col text-zinc-800 divide-zinc-800 divide-y-2">
+				<p class="text-xl text-center font-bold">{title}</p>
+				<p class="px-4 py-4 text-sm text-left">
+					{body}
+				</p>
+			</div>
+		</div>
 	</a>
 </li>
 <style>
 	.link-card {
-		--accent: #d9f99d;
+		--accent: #fde68a;
 		--accent-gradient: linear-gradient(
 			45deg,
 			var(--accent),
-			#67e8f9 30%,
+			#e4e4e7 30%,
 			white 60%
 		);
 		list-style: none;
@@ -42,31 +43,10 @@ const { href, title, body, imageSrc } = Astro.props;
 		background-size: 400%;
 		border-radius: 0.6rem;
 		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.25, 1, 0.36, 1);
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 		box-shadow:
 			0 4px 6px -1px rgba(0, 0, 0, 0.1),
 			0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	}
-
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1rem 1.3rem;
-		border-radius: 0.35rem;
-		color: #111;
-		background-color: white;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-		color: #444;
 	}
 	.link-card:is(:hover, :focus-within) {
 		background-position: 0;
