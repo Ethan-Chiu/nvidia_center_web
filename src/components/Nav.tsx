@@ -22,11 +22,30 @@ const itemMotionDesktop = {
     visible: { opacity: 1, x: 0 },
     hidden: { opacity: 1, x: 0 },
 }
+
+const draw = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: (i: number) => {
+        const delay = 1 + i * 0.5;
+        return {
+            pathLength: 1,
+            opacity: 1,
+            transition: {
+                delay: 1,
+                pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
+                opacity: { delay, duration: 0.01 }
+            }
+        };
+    }
+};
+
+// Links
 const navLinks = [
     { name: "Home", href: "/", id: 1 },
     { name: "Blog", href: "/blog", id: 2 },
     { name: "Contact", href: "/contact", id: 3 },
 ]
+
 
 const NavLinks = ({
     isMobile,
@@ -48,26 +67,11 @@ const NavLinks = ({
     </div>
 )
 
-const draw = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: (i: number) => {
-        const delay = 1 + i * 0.5;
-        return {
-            pathLength: 1,
-            opacity: 1,
-            transition: {
-                pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-                opacity: { delay, duration: 0.01 }
-            }
-        };
-    }
-};
-
-
 export default function Nav() {
     const [toggled, setToggled] = useState(false)
     return (
         <nav className="relative mx-8 mb-24 flex items-center justify-between pb-6 pt-12 font-medium md:mx-16 lg:mx-32">
+            {/* Title */}
             <div className="relative w-40 h-10">
                 <motion.svg
                     initial="hidden"
@@ -84,7 +88,6 @@ export default function Nav() {
                     />
                 </motion.svg>
                 <div className="absolute top-0 w-full h-full p-1 flex justify-center">
-                    {/* Title */}
                     <h1 className="text-lg font-bold">
                         <a href="/">Workshop</a>
                     </h1>
