@@ -42,7 +42,7 @@ const draw = {
 // Links
 const navLinks = [
 	{ name: "Home", href: "/", id: 1 },
-	{ name: "Blog", href: "/blog", id: 2 },
+	{ name: "Timeline", href: "/timeline", id: 2 },
 	{ name: "Contact", href: "/contact", id: 3 },
 ];
 
