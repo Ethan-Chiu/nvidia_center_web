@@ -1,0 +1,13 @@
+{
+    "site": {
+        "head": {
+            "title": "Research center"
+        },
+        "content": {
+            "title": "Description"
+        }
+    },
+    "home": {
+        "title": "Welcome to my awesome website!"
+    }
+}
