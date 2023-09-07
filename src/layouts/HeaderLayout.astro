@@ -1,0 +1,12 @@
+---
+import { LanguageSelector } from "astro-i18next/components";
+import Nav from "../components/Nav";
+
+---
+
+<>
+    <Nav client:load />
+    <LanguageSelector showFlag={true} class="my-select-class" />
+    <slot />
+</>
+

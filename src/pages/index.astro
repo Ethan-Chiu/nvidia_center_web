@@ -1,12 +1,14 @@
 ---
 import i18next, { t, changeLanguage } from "i18next";
 import Layout from "../layouts/Layout.astro";
+import HeaderLayout from "../layouts/HeaderLayout.astro";
 import Card from "../components/Card.astro";
 
 changeLanguage("en");
 ---
 
 <Layout title={t("site.head.title")}>
+	<HeaderLayout>
 	<main class="py-16 px-16 flex justify-center">
 		<div class="w-2/3">
 			<h1 class="font-serif font-bold text-xl m-2">{t("site.content.title")}</h1>
@@ -42,4 +44,5 @@ changeLanguage("en");
 			</div>
 		</div>
 	</main>
+	</HeaderLayout>
 </Layout>
