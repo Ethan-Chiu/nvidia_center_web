@@ -1,6 +1,6 @@
 {
     "nav": {
-        "title": "Workshop",
+        "title": "Research center",
         "language": "Language",
         "home": "Home",
         "contact": "Contact"
@@ -12,6 +12,10 @@
         "content": {
             "title": "Description"
         }
+    },
+    "footer": {
+        "title": "Research center",
+        "description": "MediaTek-NTU Research Center blah ..."
     },
     "home": {
 

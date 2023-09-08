@@ -106,7 +106,7 @@ export default function Nav(props: Props) {
 			{/* Title */}
 			<CompTitle title={t("nav.title")}/>
 
-			<div className="flex space-x-4">
+			<div className="flex gap-x-4">
 				<ThemeToggle/>
 				<div>
 					{props.languageSelector}
@@ -118,8 +118,8 @@ export default function Nav(props: Props) {
 						variants={navMotion}
 						animate="visible"
 						initial="hidden"
-						className="fixed left-0 top-0  z-40 flex h-screen
-			w-full flex-col items-center  justify-center  gap-24 bg-white text-2xl font-bold"
+						className="fixed left-0 top-0 z-40 flex h-screen
+			w-full flex-col items-center justify-center gap-24 bg-white text-2xl font-bold"
 					>
 						<NavLinks
 							className="flex flex-col gap-16 text-lg"

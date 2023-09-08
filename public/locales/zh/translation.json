@@ -13,6 +13,10 @@
             "title": "概要"
         }
     },
+    "footer": {
+        "title": "研究中心",
+        "description": "MediaTek-NTU Research Center blah ..."
+    },
     "home": {
 
     }
