@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ThemeToggle } from "./ThemeSelector";
 
 const navMotion = {
 	visible: {
@@ -93,6 +94,7 @@ export default function Nav() {
 				</div>
 			</div>
 
+			<ThemeToggle/>
 			{/* Nav Items animating in  */}
 			{toggled && (
 				<motion.div

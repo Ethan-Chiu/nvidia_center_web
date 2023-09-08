@@ -21,7 +21,28 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<HeadHrefLangs/>
 	</head>
-	<body class="bg-zinc-50">
-		<slot />
+	<body>
+		<div class="bg-background">
+			<slot />
+		</div>
 	</body>
 </html>
+
+<script is:inline>
+	const theme = (() => {
+		if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+			return localStorage.getItem("theme");
+		}
+		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+			return "dark";
+		}
+		return "light";
+	})();
+  
+	if (theme === "light") {
+		document.documentElement.classList.remove("dark");
+	} else {
+		document.documentElement.classList.add("dark");
+	}
+	window.localStorage.setItem("theme", theme);
+</script>
