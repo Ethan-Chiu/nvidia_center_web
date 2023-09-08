@@ -1,0 +1,28 @@
+---
+import i18next from "i18next";
+import ISO6991 from "iso-639-1";
+import { localizePath } from "astro-i18next";
+import LanguageSelectorIsland from "./LanguageSelector";
+
+const supportedLanguages = i18next.languages;
+const currentLanguage = i18next.language;
+
+const { pathname } = Astro.url;
+const { languageMapping, ...attributes } = Astro.props;
+
+const optionValues = supportedLanguages.map((supportedLanguage: string) => localizePath(pathname, supportedLanguage))
+const optionElements =  supportedLanguages.map((supportedLanguage: string) => { 
+    let nativeName = "";
+    if (
+        languageMapping &&
+        languageMapping.hasOwnProperty(supportedLanguage)
+    ) {
+        nativeName = languageMapping[supportedLanguage];
+    } else {
+        nativeName = ISO6991.getNativeName(supportedLanguage);
+    }
+    return nativeName;
+})
+---
+
+<LanguageSelectorIsland client:load optionValues={optionValues} optionElements={optionElements} {...attributes}/>

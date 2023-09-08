@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { ThemeToggle } from "./ThemeSelector";
 
 const navMotion = {
@@ -67,7 +67,11 @@ const NavLinks = ({
 	</div>
 );
 
-export default function Nav() {
+interface Props extends astroHTML.JSX.SelectHTMLAttributes {
+	languageSelector?: ReactNode
+}
+
+export default function Nav(props: Props) {
 	const [toggled, setToggled] = useState(false);
 	return (
 		<nav className="relative mx-8 mb-12 flex items-center justify-between pb-6 pt-12 font-medium md:mx-16 lg:mx-32">
@@ -83,7 +87,7 @@ export default function Nav() {
 						x="0"
 						y="0"
 						variants={draw}
-						className="h-full w-full fill-transparent stroke-black stroke-[5px]"
+						className="h-full w-full fill-transparent stroke-foreground stroke-[5px]"
 						strokeLinecap="square"
 					/>
 				</motion.svg>
@@ -95,6 +99,7 @@ export default function Nav() {
 			</div>
 
 			<ThemeToggle/>
+			{props.languageSelector}
 			{/* Nav Items animating in  */}
 			{toggled && (
 				<motion.div
@@ -130,12 +135,12 @@ export default function Nav() {
 			>
 				<motion.span
 					animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
-					className="line-1 block h-0.5 w-8 bg-black"
+					className="line-1 block h-0.5 w-8 bg-foreground"
 				></motion.span>
 
 				<motion.span
 					animate={{ width: toggled ? 0 : 24 }}
-					className="line-2 block h-0.5 w-6 bg-black"
+					className="line-2 block h-0.5 w-6 bg-foreground"
 				></motion.span>
 				<motion.span
 					animate={{
@@ -143,7 +148,7 @@ export default function Nav() {
 						y: toggled ? -8 : 0,
 						width: toggled ? 32 : 24,
 					}}
-					className="line-3 block h-0.5 w-4 bg-black"
+					className="line-3 block h-0.5 w-4 bg-foreground"
 				></motion.span>
 			</motion.div>
 		</nav>
