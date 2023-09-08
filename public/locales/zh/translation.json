@@ -1,4 +1,10 @@
 {
+    "nav": {
+        "title": "研究中心",
+        "language": "語言",
+        "home": "首頁",
+        "contact": "聯絡方式"
+    },
     "site": {
         "head": {
             "title": "台大創新研究中心"

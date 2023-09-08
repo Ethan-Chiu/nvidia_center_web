@@ -10,19 +10,21 @@ const currentLanguage = i18next.language;
 const { pathname } = Astro.url;
 const { languageMapping, ...attributes } = Astro.props;
 
-const optionValues = supportedLanguages.map((supportedLanguage: string) => localizePath(pathname, supportedLanguage))
-const optionElements =  supportedLanguages.map((supportedLanguage: string) => { 
+const convertLanguageDisplay = (language: string) => {
     let nativeName = "";
     if (
         languageMapping &&
-        languageMapping.hasOwnProperty(supportedLanguage)
+        languageMapping.hasOwnProperty(language)
     ) {
-        nativeName = languageMapping[supportedLanguage];
+        nativeName = languageMapping[language];
     } else {
-        nativeName = ISO6991.getNativeName(supportedLanguage);
+        nativeName = ISO6991.getNativeName(language);
     }
     return nativeName;
-})
+}
+
+const optionValues = supportedLanguages.map((supportedLanguage: string) => localizePath(pathname, supportedLanguage))
+const optionElements =  supportedLanguages.map((supportedLanguage: string) => convertLanguageDisplay(supportedLanguage))
 ---
 
-<LanguageSelectorIsland client:load optionValues={optionValues} optionElements={optionElements} {...attributes}/>
+<LanguageSelectorIsland client:load placeholder={convertLanguageDisplay(currentLanguage)} optionValues={optionValues} optionElements={optionElements} {...attributes}/>

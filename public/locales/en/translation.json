@@ -1,4 +1,10 @@
 {
+    "nav": {
+        "title": "Workshop",
+        "language": "Language",
+        "home": "Home",
+        "contact": "Contact"
+    },
     "site": {
         "head": {
             "title": "Research center"
