@@ -97,7 +97,7 @@ export default function Nav(props: Props) {
 	// Links
 	const navLinks: NavLinkData[] = [
 		{ name: t("nav.home"), href: "/", id: 1 },
-		{ name: "Timeline", href: "/timeline", id: 2 },
+		{ name: t("nav.news"), href: "/news", id: 2 },
 		{ name: t("nav.contact"), href: "/contact", id: 3 },
 	];
 
