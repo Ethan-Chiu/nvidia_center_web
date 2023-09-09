@@ -35,7 +35,7 @@ const { Content } = await entry.render();
                                 { frontmatter.description }
                             </p>
                             <p class="text-sm rounded-sm bg-destructive text-destructive-foreground p-1">
-                                { frontmatter.publish_date.toDateString() }
+                                { frontmatter.publish_date?.toDateString() }
                             </p>
                         </div>
                     </div>

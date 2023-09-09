@@ -37,23 +37,7 @@ const itemMotionDesktop = {
 	hidden: { opacity: 1, x: 0 },
 };
 
-const draw = {
-	hidden: { pathLength: 0, opacity: 0 },
-	visible: (i: number) => {
-		const delay = 1 + i * 0.5;
-		return {
-			pathLength: 1,
-			opacity: 1,
-			transition: {
-				delay: 1,
-				pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-				opacity: { delay, duration: 0.01 },
-			},
-		};
-	},
-};
-
-interface NavLinkData {
+export type NavLinkData = {
 	name: string;
     href: string;
     id: number;
@@ -86,6 +70,7 @@ const NavLinks = ({
 );
 
 interface Props extends astroHTML.JSX.SelectHTMLAttributes {
+	navLinks: NavLinkData[];
 	languageSelector?: ReactNode;
 	themeSelector?: ReactNode;
 }
@@ -95,11 +80,7 @@ export default function Nav(props: Props) {
 	const { t } = useTranslation<string>("translation");
 
 	// Links
-	const navLinks: NavLinkData[] = [
-		{ name: t("nav.home"), href: "/", id: 1 },
-		{ name: t("nav.news"), href: "/news", id: 2 },
-		{ name: t("nav.contact"), href: "/contact", id: 3 },
-	];
+	
 
 	return (
 		<nav className="relative mx-8 mb-4 flex items-center justify-between pb-4 pt-8 font-medium md:mx-14 lg:mx-16">
@@ -125,7 +106,7 @@ export default function Nav(props: Props) {
 					>
 						<NavLinks
 							className="flex flex-col gap-16 text-lg"
-							navLinks={navLinks}
+							navLinks={props.navLinks}
 							isMobile={true}
 						/>
 					</motion.div>
@@ -137,7 +118,7 @@ export default function Nav(props: Props) {
 					transition={{ delay: 0.35 }}
 					className="hidden xl:flex xl:items-center xl:justify-center xl:gap-12 xl:text-lg"
 				>
-					<NavLinks className="flex gap-4" navLinks={navLinks} isMobile={false} />
+					<NavLinks className="flex gap-4" navLinks={props.navLinks} isMobile={false} />
 				</motion.div>
 
 				{/* Hamburger Toggle */}
@@ -177,6 +158,22 @@ function CompBurger({isOpen, onClick}: {isOpen: boolean, onClick: () => void}) {
 		</div>
 	</motion.div>;
 }
+
+const draw = {
+	hidden: { pathLength: 0, opacity: 0 },
+	visible: (i: number) => {
+		const delay = 1 + i * 0.5;
+		return {
+			pathLength: 1,
+			opacity: 1,
+			transition: {
+				delay: 1,
+				pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
+				opacity: { delay, duration: 0.01 },
+			},
+		};
+	},
+};
 
 function CompTitle({title}: {title: string}) {
 	return (
