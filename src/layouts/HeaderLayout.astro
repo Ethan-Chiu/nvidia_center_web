@@ -1,12 +1,14 @@
 ---
 import LanguageSelector from "@/components/language_selector/LanguageSelector.astro";
 import Nav from "@/components/Nav";
+import ThemeSelector from "@/components/theme_selector/ThemeSelector.astro";
 import { Separator } from "@/components/ui/separator";
 ---
 
 <>
     <Nav client:load>
         <LanguageSelector slot="languageSelector"/>
+        <ThemeSelector slot="themeSelector"/>
     </Nav>
     <Separator/>
     <slot />

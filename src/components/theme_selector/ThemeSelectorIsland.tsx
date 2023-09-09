@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { useEffect, useState } from "react";
 
-export function ThemeToggle() {
+export default function ThemeSelectorIsland() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
 
   useEffect(() => {

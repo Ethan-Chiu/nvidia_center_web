@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { ReactNode, useState } from "react";
-import { ThemeToggle } from "./ThemeSelector";
+import { type ReactNode, useState } from "react";
 
 import {
 	NavigationMenu,
@@ -87,7 +86,8 @@ const NavLinks = ({
 );
 
 interface Props extends astroHTML.JSX.SelectHTMLAttributes {
-	languageSelector?: ReactNode
+	languageSelector?: ReactNode;
+	themeSelector?: ReactNode;
 }
 
 export default function Nav(props: Props) {
@@ -107,7 +107,9 @@ export default function Nav(props: Props) {
 			<CompTitle title={t("nav.title")}/>
 
 			<div className="flex gap-x-4">
-				<ThemeToggle/>
+				<div>
+					{props.themeSelector}
+				</div>
 				<div>
 					{props.languageSelector}
 				</div>
