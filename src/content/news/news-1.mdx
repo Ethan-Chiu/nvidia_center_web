@@ -9,7 +9,12 @@ import H1 from '@/components/markdown_components/H1.astro';
 import H2 from '@/components/markdown_components/H2.astro';
 import H3 from '@/components/markdown_components/H3.astro';
 import H4 from '@/components/markdown_components/H4.astro';
-export const components = {blockquote: Blockquote, h1: H1, h2: H2, h3: H3, h4: H4}
+import ImageRaw from '@/components/markdown_components/ImageRaw.astro';
+import { Image } from 'astro:assets';
+
+export const components = {blockquote: Blockquote, h1: H1, h2: H2, h3: H3, h4: H4};
+
+<ImageRaw src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80" width="50%"/>
 
 > This quote will be a custom Blockquote
 
