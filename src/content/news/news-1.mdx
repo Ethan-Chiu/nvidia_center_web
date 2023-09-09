@@ -4,7 +4,16 @@ title: "My First Blog Post"
 description: "This is the description ..."
 ---
 
-## Introduction
+import Blockquote from '@/components/markdown_components/Blockquote.astro';
+import H1 from '@/components/markdown_components/H1.astro';
+import H2 from '@/components/markdown_components/H2.astro';
+import H3 from '@/components/markdown_components/H3.astro';
+import H4 from '@/components/markdown_components/H4.astro';
+export const components = {blockquote: Blockquote, h1: H1, h2: H2, h3: H3, h4: H4}
+
+> This quote will be a custom Blockquote
+
+# Introduction
 
 I can link internally to [my conclusion](#conclusion) on the same page when writing Markdown.
 
@@ -22,6 +31,7 @@ I will finish the Astro tutorial, and then keep adding more posts. Watch this sp
 
 3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
 
-## Whats next
+### Whats next
 
+#### Next
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
