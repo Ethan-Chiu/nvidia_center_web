@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import HeaderLayout from "../layouts/HeaderLayout.astro";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card";
 import FooterLayout from "@/layouts/FooterLayout.astro";
+import { Separator } from "@/components/ui/separator";
 
 changeLanguage("en");
 ---
@@ -15,14 +16,33 @@ changeLanguage("en");
 			<div class="w-2/3">
 				<Card>
 					<CardHeader>
-						<CardTitle>Create project</CardTitle>
+						<CardTitle>Jennifer Pan</CardTitle>
 						<CardDescription>
-							Deploy your new project in one-click.
+							Assistant	
 						</CardDescription>
 					</CardHeader>
-					<CardContent>Content</CardContent>
+					<CardContent>
+						<div class="flex gap-2">
+							<p class="w-16 rounded-sm bg-destructive text-destructive-foreground p-1 text-center">
+								Email
+							</p>
+							<p class="flex-1 p-1">
+								emailexample@gmail.com
+							</p>	
+						</div>
+						<Separator className="mb-4"/>
+						<div class="flex gap-2">
+							<p class="w-16 rounded-sm bg-destructive text-destructive-foreground p-1 text-center">
+								Phone
+							</p>
+							<p class="flex-1 p-1">
+								(02) 12345678
+							</p>	
+						</div>
+						<Separator className="mb-4"/>
+					</CardContent>
 					<CardFooter className="flex justify-between">
-						Footer
+						
 					</CardFooter>
 				</Card>
 			</div>
