@@ -4,20 +4,12 @@ title: My First Blog Post
 description: This is the description ...
 ---
 
-# My First Blog Post
+## Introduction
 
-Published on: 2022-07-01
+I can link internally to [my conclusion](#conclusion) on the same page when writing Markdown.
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+## Conclusion
 
-## What Ive accomplished
-
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
-
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
-
-## Whats next
+I can use the URL `https://my-domain.com/page-1/#introduction` to navigate directly to my Introduction on the page.
 
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.

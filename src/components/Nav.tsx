@@ -102,7 +102,7 @@ export default function Nav(props: Props) {
 	];
 
 	return (
-		<nav className="relative mx-8 mb-12 flex items-center justify-between pb-6 pt-12 font-medium md:mx-16 lg:mx-20">
+		<nav className="relative mx-8 mb-4 flex items-center justify-between pb-4 pt-8 font-medium md:mx-14 lg:mx-16">
 			{/* Title */}
 			<CompTitle title={t("nav.title")}/>
 
@@ -178,7 +178,7 @@ function CompBurger({isOpen, onClick}: {isOpen: boolean, onClick: () => void}) {
 
 function CompTitle({title}: {title: string}) {
 	return (
-		<div className="relative h-10 w-40">
+		<div className="relative h-10 w-40 ml-4">
 			<motion.svg
 				initial="hidden"
 				animate="visible"
