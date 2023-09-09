@@ -1,8 +1,8 @@
 ---
 import { changeLanguage } from "i18next";
 import { localizePath } from "astro-i18next";
-import Layout from "../../layouts/Layout.astro";
-import HeaderLayout from "../../layouts/HeaderLayout.astro";
+import Layout from "../../../layouts/Layout.astro";
+import HeaderLayout from "../../../layouts/HeaderLayout.astro";
 import FooterLayout from "@/layouts/FooterLayout.astro";
 import { getCollection } from "astro:content";
 import { type NewsType } from "@/schema/news";
@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-changeLanguage("en");
+changeLanguage("zh");
 
 export async function getStaticPaths({ paginate }: {
     paginate: any;

@@ -4,29 +4,45 @@ import Layout from "../../layouts/Layout.astro";
 import HeaderLayout from "../../layouts/HeaderLayout.astro";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card";
 import FooterLayout from "@/layouts/FooterLayout.astro";
+import { Separator } from "@/components/ui/separator";
 
 changeLanguage("zh");
 ---
 
 <Layout title={t("")}>
-<HeaderLayout>
-<FooterLayout>
-		<div class="py-16 px-16 flex justify-center">
-			<div class="w-2/3">
-				<Card>
-					<CardHeader>
-						<CardTitle>Create project</CardTitle>
-						<CardDescription>
-							Deploy your new project in one-click.
-						</CardDescription>
-					</CardHeader>
-					<CardContent>Content</CardContent>
-					<CardFooter className="flex justify-between">
-						Footer
-					</CardFooter>
-				</Card>
+	<HeaderLayout>
+		<FooterLayout>
+			<div class="py-16 px-16 flex justify-center">
+				<div class="w-2/3">
+					<Card>
+						<CardHeader>
+							<CardTitle>Jennifer Pan</CardTitle>
+							<CardDescription>Assistant</CardDescription>
+						</CardHeader>
+						<CardContent>
+							<div class="flex gap-2">
+								<p
+									class="w-16 rounded-sm bg-destructive text-destructive-foreground p-1 text-center"
+								>
+									Email
+								</p>
+								<p class="flex-1 p-1">emailexample@gmail.com</p>
+							</div>
+							<Separator className="mb-4" />
+							<div class="flex gap-2">
+								<p
+									class="w-16 rounded-sm bg-destructive text-destructive-foreground p-1 text-center"
+								>
+									Phone
+								</p>
+								<p class="flex-1 p-1">(02) 12345678</p>
+							</div>
+							<Separator className="mb-4" />
+						</CardContent>
+						<CardFooter className="flex justify-between" />
+					</Card>
+				</div>
 			</div>
-		</div>
-</FooterLayout>
-</HeaderLayout>
+		</FooterLayout>
+	</HeaderLayout>
 </Layout>

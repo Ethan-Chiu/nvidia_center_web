@@ -10,7 +10,7 @@ changeLanguage("zh");
 
 export async function getStaticPaths() {
     const newsEntries = await getCollection("news");
-    return newsEntries.map(entry => ({
+    return newsEntries.map((entry) => ({
         params: { slug: entry.slug },
         props: { entry },
     }));
@@ -19,35 +19,38 @@ const { entry } = Astro.props;
 const frontmatter = entry.data;
 const { Content } = await entry.render();
 ---
-<Layout title={ frontmatter.title }>
-    <HeaderLayout>
-        <FooterLayout>
-            <div class="flex flex-col items-center justify-center">
-                <Separator className="bg-destructive" />
-                <Separator className="bg-destructive mt-2" />
+
+<Layout title={frontmatter.title}>
+	<HeaderLayout>
+		<FooterLayout>
+			<div class="flex flex-col items-center justify-center">
+				<Separator className="bg-destructive" />
+				<Separator className="bg-destructive mt-2" />
 				<div class="w-2/3 py-4">
-                    <div class="w-full my-4 p-4 rounded-md border-border border-[1px]">
-                        <h1 class="text-4xl font-medium leading-none my-4">
-                            { frontmatter.title }
-                        </h1>
-                        <div class="flex align-middle">
-                            <p class="flex-1 text-sm text-muted-foreground p-1">
-                                { frontmatter.description }
-                            </p>
-                            <p class="text-sm rounded-sm bg-destructive text-destructive-foreground p-1">
-                                { frontmatter.publish_date?.toDateString() }
-                            </p>
-                        </div>
-                    </div>
-                    <div class="px-4 mb-8">
-					    <Content/>
-                    </div>
+					<div
+						class="w-full my-4 p-4 rounded-md border-border border-[1px]"
+					>
+						<h1 class="text-4xl font-medium leading-none my-4">
+							{frontmatter.title}
+						</h1>
+						<div class="flex align-middle">
+							<p class="flex-1 text-sm text-muted-foreground p-1">
+								{frontmatter.description}
+							</p>
+							<p
+								class="text-sm rounded-sm bg-destructive text-destructive-foreground p-1"
+							>
+								{frontmatter.publish_date?.toDateString()}
+							</p>
+						</div>
+					</div>
+					<div class="px-4 mb-8">
+						<Content />
+					</div>
 				</div>
-                <Separator className="bg-destructive" />
-                <Separator className="bg-destructive mt-2 mb-1" />
+				<Separator className="bg-destructive" />
+				<Separator className="bg-destructive mt-2 mb-1" />
 			</div>
-        </FooterLayout>
-    </HeaderLayout>
+		</FooterLayout>
+	</HeaderLayout>
 </Layout>
-
-
