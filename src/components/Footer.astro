@@ -1,5 +1,6 @@
 ---
 import { t } from "i18next"
+import { localizePath } from "astro-i18next"
 ---
 
 <footer class="flex flex-col gap-3 bg-secondary m-0 px-10 pt-10">
@@ -8,7 +9,7 @@ import { t } from "i18next"
         <li class="row-span-3">
             <a
                 class="flex h-full w-full select-none flex-col justify-end rounded-md p-6 bg-popover border-2 border-primary no-underline outline-none focus:shadow-md"
-                href="/"
+                href={localizePath("/")}
             >
             <!-- <Icons.logo className="h-6 w-6" /> -->
                 <div class="mb-2 mt-4 text-lg font-medium">

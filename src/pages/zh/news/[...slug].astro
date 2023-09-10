@@ -30,15 +30,16 @@ const { Content } = await entry.render();
 					<div
 						class="w-full my-4 p-4 rounded-md border-border border-[1px]"
 					>
-						<h1 class="text-4xl font-medium leading-none my-4">
+						<h1 class="text-4xl font-medium leading-none my-4" transition:name={`${entry.slug}-title`}>
 							{frontmatter.title}
 						</h1>
 						<div class="flex align-middle">
-							<p class="flex-1 text-sm text-muted-foreground p-1">
+							<p class="flex-1 text-sm text-muted-foreground p-1" transition:name={`${entry.slug}-description`}>
 								{frontmatter.description}
 							</p>
 							<p
 								class="text-sm rounded-sm bg-destructive text-destructive-foreground p-1"
+								transition:name={`${entry.slug}-date-string`}
 							>
 								{frontmatter.publish_date?.toDateString()}
 							</p>

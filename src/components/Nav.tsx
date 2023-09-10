@@ -97,7 +97,7 @@ export default function Nav(props: Props) {
 						animate="visible"
 						initial="hidden"
 						className="fixed left-0 top-0 z-40 flex h-screen
-			w-full flex-col items-center justify-center gap-24 bg-white text-2xl font-bold"
+			w-full flex-col items-center justify-center gap-24 bg-background text-2xl font-bold"
 					>
 						<NavLinks
 							className="flex flex-col gap-16 text-lg"
