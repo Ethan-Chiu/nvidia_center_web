@@ -3,10 +3,15 @@
         "title": "Research center",
         "language": "Language",
         "home": "Home",
+        "members": "Memders",
         "news": "News",
         "contact": "Contact"
     },
-    "site": {
+    "footer": {
+        "title": "Research center",
+        "description": "MediaTek-NTU Research Center blah ..."
+    },
+    "home": {
         "head": {
             "title": "Research center"
         },
@@ -14,11 +19,12 @@
             "title": "Description"
         }
     },
-    "footer": {
-        "title": "Research center",
-        "description": "MediaTek-NTU Research Center blah ..."
-    },
-    "home": {
-
+    "members": {
+        "head": {
+            "title": "Members"
+        },
+        "content": {
+            "title": "Members" 
+        }
     }
 }

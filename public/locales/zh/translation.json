@@ -3,10 +3,15 @@
         "title": "研究中心",
         "language": "語言",
         "home": "首頁",
+        "members": "成員",
         "news": "公告信息",
         "contact": "聯絡方式"
     },
-    "site": {
+    "footer": {
+        "title": "研究中心",
+        "description": "MediaTek-NTU Research Center blah ..."
+    },
+    "home": {
         "head": {
             "title": "台大創新研究中心"
         },
@@ -14,11 +19,12 @@
             "title": "概要"
         }
     },
-    "footer": {
-        "title": "研究中心",
-        "description": "MediaTek-NTU Research Center blah ..."
-    },
-    "home": {
-
+    "members": {
+        "head": {
+            "title": "成員"
+        },
+        "content": {
+            "title": "成員" 
+        }
     }
 }

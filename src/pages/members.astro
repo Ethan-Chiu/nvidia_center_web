@@ -8,32 +8,14 @@ import FooterLayout from "@/layouts/FooterLayout.astro";
 changeLanguage("en");
 ---
 
-<Layout title={t("home.head.title")}>
+<Layout title={t("content.head.title")}>
 	<HeaderLayout>
 		<FooterLayout>
 			<main class="py-16 px-16 flex justify-center">
 				<div class="w-2/3">
 					<h1 class="font-serif font-bold text-xl m-2">
-						{t("home.content.title")}
+						{t("members.content.title")}
 					</h1>
-					<div
-						class="bg-secondary w-full p-4 rounded-md text-foreground"
-					>
-						<p>
-							Self-Supervised Learning (SSL) of latent
-							representations is transforming deep learning
-							powered technologies. In the speech and audio
-							domains, most state-of-the-art systems rely on large
-							Transformer neural networks pretrained on thousands
-							of hours of signal following various methods such as
-							contrastive or multitask learning. Throughout <strong
-							>
-								a schedule that maximizes interractions</strong
-							> ...
-						</p>
-					</div>
-
-					<h1 class="font-serif font-bold text-xl m-2">Speakers</h1>
 					<div class="my-8">
 						<ul class="grid xl:grid-cols-2 gap-4 p-0">
 							<Card
