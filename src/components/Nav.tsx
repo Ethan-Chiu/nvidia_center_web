@@ -57,11 +57,9 @@ const NavLinks = ({
 			{navLinks.map(({ name, href, id }) => (
 				<motion.div key={id} variants={isMobile ? itemMotion : itemMotionDesktop}>
 					<NavigationMenuItem>
-						<a href={href}>
-							<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+						<NavigationMenuLink href={href} className={navigationMenuTriggerStyle()}>
 							{name}
-							</NavigationMenuLink>
-						</a>
+						</NavigationMenuLink>
 					</NavigationMenuItem>
 				</motion.div>
 			))}
@@ -78,9 +76,6 @@ interface Props extends astroHTML.JSX.SelectHTMLAttributes {
 export default function Nav(props: Props) {
 	const [toggled, setToggled] = useState(false);
 	const { t } = useTranslation<string>("translation");
-
-	// Links
-	
 
 	return (
 		<nav className="relative mx-8 mb-4 flex items-center justify-between pb-4 pt-8 font-medium md:mx-14 lg:mx-16">

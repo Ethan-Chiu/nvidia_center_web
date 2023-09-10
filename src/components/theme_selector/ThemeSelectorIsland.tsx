@@ -10,15 +10,17 @@ import {
 import { useEffect, useState } from "react";
 
 export default function ThemeSelectorIsland() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
+  const [theme, setTheme] = useState(localStorage.getItem("local_theme") ?? "light");
 
   useEffect(() => {
     if (theme === "dark") {
+      console.log("apply dark by toggle")
       document.documentElement.classList.add("dark");
     } else {
+      console.log("apply light by toggle")
       document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem("theme", theme);
+    // localStorage.setItem("local_theme", theme);
   }, [theme]);
 
   return (
