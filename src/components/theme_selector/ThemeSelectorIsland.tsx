@@ -20,7 +20,7 @@ export default function ThemeSelectorIsland() {
       console.log("apply light by toggle")
       document.documentElement.classList.remove("dark");
     }
-    // localStorage.setItem("local_theme", theme);
+    localStorage.setItem("local_theme", theme);
   }, [theme]);
 
   return (

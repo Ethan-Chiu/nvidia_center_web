@@ -80,7 +80,7 @@ export default function Nav(props: Props) {
 	return (
 		<nav className="relative mx-8 mb-4 flex items-center justify-between pb-4 pt-8 font-medium md:mx-14 lg:mx-16">
 			{/* Title */}
-			<CompTitle title={t("nav.title")}/>
+			<CompTitle title={t("nav.title")} rootLink={props.navLinks[0].href}/>
 
 			<div className="flex gap-x-4">
 				<div>
@@ -170,7 +170,7 @@ const draw = {
 	},
 };
 
-function CompTitle({title}: {title: string}) {
+function CompTitle({title, rootLink}: {title: string, rootLink: string}) {
 	return (
 		<div className="relative h-10 w-40 ml-4">
 			<motion.svg
@@ -188,7 +188,7 @@ function CompTitle({title}: {title: string}) {
 			</motion.svg>
 			<div className="absolute top-0 flex h-full w-full justify-center p-1">
 				<h1 className="text-lg font-bold">
-					<a href="/">{title}</a>
+					<a href={rootLink}>{title}</a>
 				</h1>
 			</div>
 		</div>
