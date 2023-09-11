@@ -47,7 +47,7 @@ const { page } = Astro.props;
 												)}
 												class="block bg-transparent rounded-md ml-14 hover:bg-muted"
 											>
-												<div class="py-4 pr-8 pl-8 relative left-8 w-[95%]">
+												<div class="py-4 pr-8 pl-8 relative w-full">
 													<p class="inline-block border-y-2 border-foreground font-mono text-foreground" transition:name={`${post.slug}-date-string`}>
 														{" "}
 														{post.data.publish_date.toDateString()}{" "}

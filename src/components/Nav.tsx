@@ -78,11 +78,11 @@ export default function Nav(props: Props) {
 	const { t } = useTranslation<string>("translation");
 
 	return (
-		<nav className="relative mx-8 mb-4 flex items-center justify-between pb-4 pt-8 font-medium md:mx-14 lg:mx-16">
+		<nav className="relative mx-8 mb-4 flex flex-wrap items-center justify-between gap-y-3 pb-4 pt-8 font-medium md:mx-14 lg:mx-16">
 			{/* Title */}
 			<CompTitle title={t("nav.title")} rootLink={props.navLinks[0].href}/>
 
-			<div className="flex gap-x-4">
+			<div className="flex-1 flex gap-x-4 justify-end">
 				<div>
 					{props.themeSelector}
 				</div>

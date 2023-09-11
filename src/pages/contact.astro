@@ -12,30 +12,30 @@ changeLanguage("en");
 <Layout title={t("")}>
 	<HeaderLayout>
 		<FooterLayout>
-			<div class="py-16 px-16 flex justify-center">
-				<div class="w-2/3">
+			<div class="py-16 px-8 md:px-16 flex justify-center">
+				<div class="w-full lg:w-2/3">
 					<Card>
 						<CardHeader>
 							<CardTitle>Jennifer Pan</CardTitle>
 							<CardDescription>Assistant</CardDescription>
 						</CardHeader>
 						<CardContent>
-							<div class="flex gap-2">
+							<div class="flex flex-wrap gap-2">
 								<p
 									class="w-16 rounded-sm bg-destructive text-destructive-foreground p-1 text-center"
 								>
 									Email
 								</p>
-								<p class="flex-1 p-1">emailexample@gmail.com</p>
+								<p class="flex-1 p-1 whitespace-nowrap break-words">emailexample@gmail.com</p>
 							</div>
 							<Separator className="mb-4" />
-							<div class="flex gap-2">
+							<div class="flex flex-wrap gap-2">
 								<p
 									class="w-16 rounded-sm bg-destructive text-destructive-foreground p-1 text-center"
 								>
 									Phone
 								</p>
-								<p class="flex-1 p-1">(02) 12345678</p>
+								<p class="flex-1 p-1 whitespace-nowrap break-words">(02) 12345678</p>
 							</div>
 							<Separator className="mb-4" />
 						</CardContent>
