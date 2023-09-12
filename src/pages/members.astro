@@ -1,11 +1,17 @@
 ---
 import i18next, { t, changeLanguage } from "i18next";
+import { getCollection, getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import HeaderLayout from "../layouts/HeaderLayout.astro";
 import Card from "../components/Card.astro";
 import FooterLayout from "@/layouts/FooterLayout.astro";
 
 changeLanguage("en");
+
+const currentLanguage = i18next.language;
+const members = await getCollection("members", ({ id }) => {
+    return id.startsWith(`${currentLanguage}/`);
+});
 ---
 
 <Layout title={t("content.head.title")}>
@@ -18,18 +24,16 @@ changeLanguage("en");
 					</h1>
 					<div class="my-8">
 						<ul class="grid xl:grid-cols-2 gap-4 p-0">
-							<Card
-								href="https://en.wikipedia.org/wiki/Tom_Cruise"
-								title="Tom Cruise"
-								body="Thomas Cruise Mapother IV (born July 3, 1962), known professionally by his stage name Tom Cruise, is an American actor and producer. One of the world's highest-paid actors, he has received various accolades, including an Honorary Palme d'Or and three Golden Globe Awards, in addition to nominations for four Academy Awards."
-								imageSrc="https://images.mubicdn.net/images/cast_member/2184/cache-2992-1547409411/image-w856.jpg"
-							/>
-							<Card
-								href="https://en.wikipedia.org/wiki/Anya_Taylor-Joy"
-								title="Anya Taylor-Joy"
-								body="Anya-Josephine Marie Taylor-Joy is an actress. She has won several accolades, including a Golden Globe Award and a Screen Actors Guild Award, in addition to nominations for a BAFTA Film Award and a Primetime Emmy Award."
-								imageSrc="https://radicalreads.com/wp-content/uploads/2022/09/anya-taylor-joy-reading-list.jpg"
-							/>
+							{members.map((member) => {
+								return (
+								<Card
+									href=""
+									title={member.data.name}
+									body=""
+									imageSrc={member.data.picture}
+								/>
+								);
+							})}
 						</ul>
 					</div>
 				</div>
