@@ -8,16 +8,34 @@ import FooterLayout from "@/layouts/FooterLayout.astro";
 changeLanguage("en");
 
 const currentLanguage = i18next.language;
-const pageData = await getEntry("home", `${currentLanguage}/page`);
-const Content = (await pageData?.render())?.Content;
+const descriptionData = await getEntry("home", `${currentLanguage}/description`);
+const Content = (await descriptionData?.render())?.Content;
 ---
 
 <Layout title={t("home.head.title")}>
 	<HeaderLayout>
 		<FooterLayout>
-			<main class="py-16 px-16 flex justify-center">
+			<main class="py-16 px-16 flex flex-col justify-center items-center">
+				<div class="w-full justify-between items-stretch lg:w-2/3 lg:flex gap-10 my-6">
+					<div class="flex flex-col gap-6 max-w-lg my-6 lg:gap-12">
+						<h1 class="font-serif font-bold text-4xl">
+							NVIDIA-National Taiwan University Joint Research Center 
+						</h1>
+						<div class="flex gap-x-4">
+							<button class="bg-destructive py-2 px-8 rounded-md text-destructive-foreground whitespace-nowrap overflow-hidden overflow-ellipsis">
+								Check it!
+							</button>
+							<button class="border-destructive border-2 py-2 px-8 rounded-md text-foregound whitespace-nowrap overflow-hidden overflow-ellipsis">
+								Details
+							</button>
+						</div>
+					</div>
+					<div class="w-[60%] min-w-[200px] max-w-sm ml-auto my-8 flex items-end align-bottom">
+						<img class="bg-primary-foreground p-2 border-2 border-foreground rounded-md" src="https://logowik.com/content/uploads/images/national-taiwan-university7019.jpg"/>
+					</div>
+				</div>
 				<div class="w-full lg:w-2/3">
-					<h1 class="font-serif font-bold text-xl m-2">
+					<h1 class="font-serif font-bold text-3xl m-2">
 						{t("home.content.title")}
 					</h1>
 					<div
@@ -28,7 +46,7 @@ const Content = (await pageData?.render())?.Content;
 						</p>
 					</div>
 
-					<h1 class="font-serif font-bold text-xl m-2">News</h1>
+					<!-- <h1 class="font-serif font-bold text-xl m-2">News</h1> -->
 				</div>
 			</main>
 		</FooterLayout>
