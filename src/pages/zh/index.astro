@@ -1,11 +1,15 @@
 ---
 import i18next, { t, changeLanguage } from "i18next";
+import { getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import HeaderLayout from "../../layouts/HeaderLayout.astro";
-import Card from "../../components/Card.astro";
 import FooterLayout from "@/layouts/FooterLayout.astro";
 
 changeLanguage("zh");
+
+const currentLanguage = i18next.language;
+const pageData = await getEntry("home", `${currentLanguage}/page`);
+const Content = (await pageData?.render())?.Content;
 ---
 
 <Layout title={t("home.head.title")}>
@@ -20,36 +24,11 @@ changeLanguage("zh");
 						class="bg-secondary w-full p-4 rounded-md text-foreground"
 					>
 						<p>
-							Self-Supervised Learning (SSL) of latent
-							representations is transforming deep learning
-							powered technologies. In the speech and audio
-							domains, most state-of-the-art systems rely on large
-							Transformer neural networks pretrained on thousands
-							of hours of signal following various methods such as
-							contrastive or multitask learning. Throughout <strong
-							>
-								a schedule that maximizes interractions</strong
-							> ...
+							{Content && <Content /> }
 						</p>
 					</div>
 
 					<h1 class="font-serif font-bold text-xl m-2">News</h1>
-					<div class="my-8">
-						<ul class="grid xl:grid-cols-2 gap-4 p-0">
-							<Card
-								href="https://en.wikipedia.org/wiki/Tom_Cruise"
-								title="Tom Cruise"
-								body="Thomas Cruise Mapother IV (born July 3, 1962), known professionally by his stage name Tom Cruise, is an American actor and producer. One of the world's highest-paid actors, he has received various accolades, including an Honorary Palme d'Or and three Golden Globe Awards, in addition to nominations for four Academy Awards."
-								imageSrc="https://images.mubicdn.net/images/cast_member/2184/cache-2992-1547409411/image-w856.jpg"
-							/>
-							<Card
-								href="https://en.wikipedia.org/wiki/Anya_Taylor-Joy"
-								title="Anya Taylor-Joy"
-								body="Anya-Josephine Marie Taylor-Joy is an actress. She has won several accolades, including a Golden Globe Award and a Screen Actors Guild Award, in addition to nominations for a BAFTA Film Award and a Primetime Emmy Award."
-								imageSrc="https://radicalreads.com/wp-content/uploads/2022/09/anya-taylor-joy-reading-list.jpg"
-							/>
-						</ul>
-					</div>
 				</div>
 			</main>
 		</FooterLayout>
