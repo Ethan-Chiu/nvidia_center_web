@@ -3,7 +3,7 @@ import i18next, { t, changeLanguage } from "i18next";
 import { getCollection, getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import HeaderLayout from "../layouts/HeaderLayout.astro";
-import Card from "../components/Card.astro";
+import Card from "../components/card/Card";
 import FooterLayout from "@/layouts/FooterLayout.astro";
 
 changeLanguage("en");
@@ -27,9 +27,10 @@ const members = await getCollection("members", ({ id }) => {
 							{members.map((member) => {
 								return (
 								<Card
-									href=""
+									client:load
+									href={member.data.link}
 									title={member.data.name}
-									body=""
+									body={member.data.email}
 									imageSrc={member.data.picture}
 								/>
 								);
