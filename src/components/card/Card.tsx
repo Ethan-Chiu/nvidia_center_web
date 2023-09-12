@@ -5,17 +5,19 @@ import {
 	HoverCardTrigger,
 } from "@/components/ui/hover-card"
 import { Badge } from "@/components/ui/badge"
+import type { ReactNode } from "react";
 
 interface Props extends astroHTML.JSX.SelectHTMLAttributes {
 	title: string;
-	body: string;
 	href: string;
 	imageSrc: string;
+	description: string;
+	body?: ReactNode;
 }
 
-export default function Card( { href, title, body, imageSrc } : Props) {
+export default function Card( { href, title, imageSrc, description, body } : Props) {
 	return (
-		<HoverCard>
+		<HoverCard openDelay={1000}>
 			<HoverCardTrigger asChild>
 				<li className="link-card">
 					<a href={href} className="w-full bg-secondary leading-normal rounded-md">
@@ -27,9 +29,10 @@ export default function Card( { href, title, body, imageSrc } : Props) {
 							/>
 							<div className="grow px-4 flex-col text-foreground divide-foreground divide-y-2">
 								<p className="text-xl text-center font-bold">{title}</p>
-								<p className="px-4 py-4 text-sm text-left">
-									{body}
+								<p className="px-4 py-4 text-sm font-bold text-center">
+									{description}
 								</p>
+								{body}
 							</div>
 						</div>
 					</a>

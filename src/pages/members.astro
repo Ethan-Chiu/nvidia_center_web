@@ -24,17 +24,30 @@ const members = await getCollection("members", ({ id }) => {
 					</h1>
 					<div class="my-8">
 						<ul class="grid xl:grid-cols-2 gap-4 p-0">
-							{members.map((member) => {
-								return (
-								<Card
-									client:load
-									href={member.data.link}
-									title={member.data.name}
-									body={member.data.email}
-									imageSrc={member.data.picture}
-								/>
-								);
-							})}
+							{
+								members.map((member) => {
+									return (
+										<Card
+											client:load
+											href={member.data.link}
+											title={member.data.name}
+											imageSrc={member.data.picture}
+											description={member.data.title}
+										>
+											<div slot="body" class="mt-4">
+												<div class="flex flex-wrap gap-2">
+													<p class="w-16 rounded-sm border-foreground border-2 text-foreground p-1 text-center">
+														Email
+													</p>
+													<p class="flex-1 p-1 whitespace-nowrap break-words">
+														{member.data.email}
+													</p>
+												</div>
+											</div>
+										</Card>
+									);
+								})
+							}
 						</ul>
 					</div>
 				</div>
