@@ -5,6 +5,9 @@ import Layout from "../../layouts/Layout.astro";
 import HeaderLayout from "../../layouts/HeaderLayout.astro";
 import Card from "../../components/card/Card";
 import FooterLayout from "@/layouts/FooterLayout.astro";
+import { Mail } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import type { MembersType } from "@/schema/members";
 
 changeLanguage("zh");
 
@@ -25,28 +28,59 @@ const members = await getCollection("members", ({ id }) => {
 					<div class="my-8">
 						<ul class="grid xl:grid-cols-2 gap-4 p-0">
 							{
-								members.map((member) => {
-									return (
-										<Card
-											client:load
-											href={member.data.link}
-											title={member.data.name}
-											imageSrc={member.data.picture}
-											description={member.data.title}
-										>
-											<div slot="body" class="mt-4">
-												<div class="flex flex-wrap gap-2">
-													<p class="w-16 rounded-sm border-foreground border-2 text-foreground p-1 text-center">
-														Email
-													</p>
-													<p class="flex-1 p-1 whitespace-nowrap break-words">
-														{member.data.email}
-													</p>
+								members
+									.sort((a, b): number => {
+										const a_sort = a.data.name_sort;
+										const b_sort = b.data.name_sort;
+										for (
+											let i = 0;
+											i <
+											Math.min(
+												a_sort.length,
+												b_sort.length,
+											);
+											i++
+										) {
+											if (a_sort[i] !== b_sort[i]) {
+												return a_sort[i] - b_sort[i];
+											}
+										}
+										return a_sort.length - b_sort.length;
+									})
+									.map((member) => {
+										return (
+											<Card
+												client:load
+												href={member.data.link}
+												title={member.data.name}
+												imageSrc={member.data.picture}
+												description={member.data.title}
+											>
+												<div slot="body">
+													<div class="mt-6 mb-1 border-2 border-border rounded-md">
+														<p class="px-4 h-8 p-1 text-sm whitespace-nowrap break-words">
+															{member.data.title}
+														</p>
+													</div>
+													<div class="mb-1 border-2 border-border rounded-md">
+														<div class="flex h-8 flex-wrap gap-2">
+															<p class="rounded-md text-sm text-foreground p-1 text-center">
+																<Mail className="inline mx-2" />
+																Email
+															</p>
+															<Separator orientation="vertical" />
+															<p class="p-1 text-sm whitespace-nowrap break-words">
+																{
+																	member.data
+																		.email
+																}
+															</p>
+														</div>
+													</div>
 												</div>
-											</div>
-										</Card>
-									);
-								})
+											</Card>
+										);
+									})
 							}
 						</ul>
 					</div>
