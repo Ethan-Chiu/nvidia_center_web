@@ -27,5 +27,15 @@
         "content": {
             "title": "成員" 
         }
+    },
+    "contact": {
+        "head": {
+            "title": "聯絡方式"
+        },
+        "content": {
+            "title": "聯絡方式",
+            "phone": "電話",
+            "email": "郵箱"
+        }
     }
 }

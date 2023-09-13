@@ -27,5 +27,15 @@
         "content": {
             "title": "Members" 
         }
+    },
+    "contact": {
+        "head": {
+            "title": "Contact"
+        },
+        "content": {
+            "title": "Contact",
+            "phone": "Phone",
+            "email": "Email"
+        }
     }
 }

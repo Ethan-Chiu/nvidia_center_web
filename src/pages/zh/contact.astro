@@ -1,41 +1,68 @@
 ---
 import i18next, { t, changeLanguage } from "i18next";
+import { getCollection, getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import HeaderLayout from "../../layouts/HeaderLayout.astro";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, } from "@/components/ui/card";
 import FooterLayout from "@/layouts/FooterLayout.astro";
 import { Separator } from "@/components/ui/separator";
+import { Mail, Phone } from "lucide-react";
 
 changeLanguage("zh");
+
+const currentLanguage = i18next.language;
+const contactData = await getEntry("contact", `${currentLanguage}/data`);
 ---
 
-<Layout title={t("")}>
+<Layout title={t("contact.head.title")}>
 	<HeaderLayout>
 		<FooterLayout>
 			<div class="py-16 px-8 md:px-16 flex justify-center">
 				<div class="w-full lg:w-2/3">
+					<h1 class="font-serif font-bold text-4xl mb-4">
+						{t("contact.content.title")}
+					</h1>
 					<Card>
 						<CardHeader>
-							<CardTitle>Jennifer Pan</CardTitle>
-							<CardDescription>Assistant</CardDescription>
+							<CardTitle>{contactData?.data.contact_1}</CardTitle>
+							<CardDescription>{contactData?.data.contact_1_desc}</CardDescription>
 						</CardHeader>
 						<CardContent>
 							<div class="flex flex-wrap gap-2">
-								<p
-									class="w-16 rounded-sm bg-destructive text-destructive-foreground p-1 text-center"
+								<div
+									class="w-24 flex rounded-sm bg-destructive text-destructive-foreground p-1 text-center align-middle justify-center"
 								>
-									Email
-								</p>
-								<p class="flex-1 p-1 whitespace-nowrap break-words">emailexample@gmail.com</p>
+									<Phone className="inline w-5"/><div class="inline px-2">{t("contact.content.phone")}</div>
+								</div>
+								<p class="flex-1 p-1 whitespace-nowrap break-words">{contactData?.data.phone_1}</p>
 							</div>
 							<Separator className="mb-4" />
 							<div class="flex flex-wrap gap-2">
-								<p
-									class="w-16 rounded-sm bg-destructive text-destructive-foreground p-1 text-center"
+								<div
+									class="w-24 flex rounded-sm bg-destructive text-destructive-foreground p-1 text-center align-middle justify-center"
 								>
-									Phone
-								</p>
-								<p class="flex-1 p-1 whitespace-nowrap break-words">(02) 12345678</p>
+									<Mail className="inline w-5"/><div class="inline px-2">{t("contact.content.email")}</div>
+								</div>
+								<p class="flex-1 p-1 whitespace-nowrap break-words">{contactData?.data.email_1}</p>
+							</div>
+							<Separator className="mb-4" />
+						</CardContent>
+						<CardFooter className="flex justify-between" />
+					</Card>
+					<!-- 2 -->
+					<Card>
+						<CardHeader>
+							<CardTitle>{contactData?.data.contact_2}</CardTitle>
+							<CardDescription>{contactData?.data.contact_2_desc}</CardDescription>
+						</CardHeader>
+						<CardContent>
+							<div class="flex flex-wrap gap-2">
+								<div
+									class="w-24 flex rounded-sm bg-destructive text-destructive-foreground p-1 text-center align-middle justify-center"
+								>
+									<Phone className="inline w-5"/><div class="inline px-2">{t("contact.content.phone")}</div>
+								</div>
+								<p class="flex-1 p-1 whitespace-nowrap break-words">{contactData?.data.phone_2}</p>
 							</div>
 							<Separator className="mb-4" />
 						</CardContent>
