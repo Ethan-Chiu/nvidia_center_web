@@ -1,6 +1,6 @@
 {
     "nav": {
-        "title": "研究中心",
+        "title": "NVIDIA臺大中心",
         "language": "語言",
         "home": "首頁",
         "members": "成員",
@@ -13,10 +13,11 @@
     },
     "home": {
         "head": {
-            "title": "台大創新研究中心"
+            "title": "NVIDIA-臺大人工智慧聯合研究中心"
         },
         "content": {
-            "title": "概要"
+            "title": "NVIDIA-臺大人工智慧聯合研究中心",
+            "description": "概要"
         }
     },
     "members": {

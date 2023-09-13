@@ -1,6 +1,6 @@
 {
     "nav": {
-        "title": "Research center",
+        "title": "NVIDIA-NTU Research Center",
         "language": "Language",
         "home": "Home",
         "members": "Members",
@@ -13,10 +13,11 @@
     },
     "home": {
         "head": {
-            "title": "Research center"
+            "title": "NVIDIA-NTU Artificial Intelligence Joint Research Center"
         },
         "content": {
-            "title": "Description"
+            "title": "NVIDIA-NTU Artificial Intelligence Joint Research Center",
+            "description": "Description"
         }
     },
     "members": {

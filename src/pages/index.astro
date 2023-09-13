@@ -19,7 +19,7 @@ const Content = (await descriptionData?.render())?.Content;
 				<div class="w-full justify-between items-stretch lg:w-2/3 lg:flex gap-10 my-6">
 					<div class="flex flex-col gap-6 max-w-lg my-6 lg:gap-12">
 						<h1 class="font-serif font-bold text-4xl">
-							NVIDIA-National Taiwan University Joint Research Center 
+							{t("home.content.title")}
 						</h1>
 						<div class="flex gap-x-4">
 							<button class="bg-destructive py-2 px-8 rounded-md text-destructive-foreground whitespace-nowrap overflow-hidden overflow-ellipsis">
@@ -36,7 +36,7 @@ const Content = (await descriptionData?.render())?.Content;
 				</div>
 				<div class="w-full lg:w-2/3">
 					<h1 class="font-serif font-bold text-3xl m-2">
-						{t("home.content.title")}
+						{t("home.content.description")}
 					</h1>
 					<div
 						class="bg-secondary w-full p-4 rounded-md text-foreground"

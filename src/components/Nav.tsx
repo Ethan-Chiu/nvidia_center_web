@@ -172,7 +172,7 @@ const draw = {
 
 function CompTitle({title, rootLink}: {title: string, rootLink: string}) {
 	return (
-		<div className="relative h-10 w-40 ml-4">
+		<div className="relative h-10 ml-4">
 			<motion.svg
 				initial="hidden"
 				animate="visible"
@@ -187,9 +187,11 @@ function CompTitle({title, rootLink}: {title: string, rootLink: string}) {
 					strokeLinecap="square" />
 			</motion.svg>
 			<div className="absolute top-0 flex h-full w-full justify-center p-1">
-				<h1 className="text-lg font-bold">
-					<a href={rootLink}>{title}</a>
-				</h1>
+				<a href={rootLink} className="overflow-hidden">
+					<h1 className="text-lg font-bold overflow-hidden whitespace-nowrap overflow-ellipsis">
+						{title}
+					</h1>
+				</a>
 			</div>
 		</div>
 	);
