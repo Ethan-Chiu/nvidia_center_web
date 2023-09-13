@@ -18,9 +18,9 @@ changeLanguage("en");
 
 const components = { a: A, blockquote: Blockquote, h1: H1, h2: H2, h3: H3, h4: H4 };
 export async function getStaticPaths() {
-    const lang = "en";
+    const __lang = "en";
     const newsEntries = await getCollection("news", ({ id }) => {
-        return id.startsWith(`${lang}/`) || id.startsWith("common/");
+        return id.startsWith(`${__lang}/`) || id.startsWith("common/");
     });
     return newsEntries.map((entry) => ({
         params: { slug: entry.slug.split("/").pop() },

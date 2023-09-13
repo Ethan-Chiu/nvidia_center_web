@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "localize": "npx astro-i18next generate && node fix_localization.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^1.0.3",

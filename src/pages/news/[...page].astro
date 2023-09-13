@@ -15,9 +15,9 @@ changeLanguage("en");
 export async function getStaticPaths({ paginate }: {
     paginate: any;
 }) {
-    const lang = "en";
+    const __lang = "en";
     const allNews = await getCollection("news", ({ id }) => {
-        return id.startsWith(`${lang}/`) || id.startsWith("common/");
+        return id.startsWith(`${__lang}/`) || id.startsWith("common/");
     });
     return paginate(allNews, {
         pageSize: 2,
