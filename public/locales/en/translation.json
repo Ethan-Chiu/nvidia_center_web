@@ -8,8 +8,8 @@
         "contact": "Contact"
     },
     "footer": {
-        "title": "Research center",
-        "description": "MediaTek-NTU Research Center blah ..."
+        "title": "NVIDIA-NTU Artificial Intelligence Joint Research Center",
+        "description": "The NVIDIA-NTU Artificial Intelligence Joint Research Center was established in 2023 as a significant outcome of the collaboration between NVIDIA and National Taiwan University."
     },
     "home": {
         "head": {
@@ -17,7 +17,9 @@
         },
         "content": {
             "title": "NVIDIA-NTU Artificial Intelligence Joint Research Center",
-            "description": "Description"
+            "description": "Description",
+            "apply": "Apply now!",
+            "learn_more": "Learn more"
         }
     },
     "members": {
