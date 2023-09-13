@@ -28,6 +28,14 @@
             "title": "成員" 
         }
     },
+    "news": {
+        "head": {
+            "title": "公告信息"
+        },
+        "content": {
+            "title": "公告信息" 
+        }
+    },
     "contact": {
         "head": {
             "title": "聯絡方式"

@@ -28,6 +28,14 @@
             "title": "Members" 
         }
     },
+    "news": {
+        "head": {
+            "title": "News"
+        },
+        "content": {
+            "title": "News" 
+        }
+    },
     "contact": {
         "head": {
             "title": "Contact"

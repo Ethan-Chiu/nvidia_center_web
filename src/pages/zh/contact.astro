@@ -22,7 +22,7 @@ const contactData = await getEntry("contact", `${currentLanguage}/data`);
 					<h1 class="font-serif font-bold text-4xl mb-4">
 						{t("contact.content.title")}
 					</h1>
-					<Card>
+					<Card className="my-4">
 						<CardHeader>
 							<CardTitle>{contactData?.data.contact_1}</CardTitle>
 							<CardDescription>{contactData?.data.contact_1_desc}</CardDescription>
@@ -47,10 +47,10 @@ const contactData = await getEntry("contact", `${currentLanguage}/data`);
 							</div>
 							<Separator className="mb-4" />
 						</CardContent>
-						<CardFooter className="flex justify-between" />
+						<!-- <CardFooter className="flex justify-between" /> -->
 					</Card>
 					<!-- 2 -->
-					<Card>
+					<Card className="my-4">
 						<CardHeader>
 							<CardTitle>{contactData?.data.contact_2}</CardTitle>
 							<CardDescription>{contactData?.data.contact_2_desc}</CardDescription>
@@ -66,7 +66,7 @@ const contactData = await getEntry("contact", `${currentLanguage}/data`);
 							</div>
 							<Separator className="mb-4" />
 						</CardContent>
-						<CardFooter className="flex justify-between" />
+						<!-- <CardFooter className="flex justify-between" /> -->
 					</Card>
 				</div>
 			</div>
