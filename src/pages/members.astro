@@ -5,12 +5,14 @@ import Layout from "../layouts/Layout.astro";
 import HeaderLayout from "../layouts/HeaderLayout.astro";
 import Card from "../components/card/Card";
 import FooterLayout from "@/layouts/FooterLayout.astro";
+import { Mail } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 changeLanguage("en");
 
 const currentLanguage = i18next.language;
 const members = await getCollection("members", ({ id }) => {
-    return id.startsWith(`${currentLanguage}/`);
+	return id.startsWith(`${currentLanguage}/`);
 });
 ---
 
@@ -34,14 +36,23 @@ const members = await getCollection("members", ({ id }) => {
 											imageSrc={member.data.picture}
 											description={member.data.title}
 										>
-											<div slot="body" class="mt-4">
-												<div class="flex flex-wrap gap-2">
-													<p class="w-16 rounded-sm border-foreground border-2 text-foreground p-1 text-center">
-														Email
+											<div slot="body">
+												<div class="mt-6 mb-1 border-2 border-border rounded-md">
+													<p class="px-4 h-8 p-1 text-sm whitespace-nowrap break-words">
+														{member.data.title}
 													</p>
-													<p class="flex-1 p-1 whitespace-nowrap break-words">
-														{member.data.email}
-													</p>
+												</div>
+												<div class="mb-1 border-2 border-border rounded-md">
+													<div class="flex h-8 flex-wrap gap-2">
+														<p class="rounded-md text-sm text-foreground p-1 text-center">
+															<Mail className="inline mx-2" />
+															Email
+														</p>
+														<Separator orientation="vertical" />
+														<p class="p-1 text-sm whitespace-nowrap break-words">
+															{member.data.email}
+														</p>
+													</div>
 												</div>
 											</div>
 										</Card>
