@@ -1,17 +1,29 @@
 ---
-import { changeLanguage } from "i18next";
+import i18next, { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import HeaderLayout from "@/layouts/HeaderLayout.astro";
 import FooterLayout from "@/layouts/FooterLayout.astro";
 import { Separator } from "@/components/ui/separator";
+import A from "@/components/markdown_components/A.astro";
+import Blockquote from "@/components/markdown_components/Blockquote.astro";
+import H1 from "@/components/markdown_components/H1.astro";
+import H2 from "@/components/markdown_components/H2.astro";
+import H3 from "@/components/markdown_components/H3.astro";
+import H4 from "@/components/markdown_components/H4.astro";
+import ImageRaw from "@/components/markdown_components/ImageRaw.astro";
+import { Image } from "astro:assets";
 
 changeLanguage("en");
 
+const components = { a: A, blockquote: Blockquote, h1: H1, h2: H2, h3: H3, h4: H4 };
 export async function getStaticPaths() {
-    const newsEntries = await getCollection("news");
+    const lang = "en";
+    const newsEntries = await getCollection("news", ({ id }) => {
+        return id.startsWith(`${lang}/`) || id.startsWith("common/");
+    });
     return newsEntries.map((entry) => ({
-        params: { slug: entry.slug },
+        params: { slug: entry.slug.split("/").pop() },
         props: { entry },
     }));
 }
@@ -33,12 +45,12 @@ const { Content } = await entry.render();
 						<h1 class="text-4xl font-medium leading-none my-4" transition:name={`${entry.slug}-title`}>
 							{frontmatter.title}
 						</h1>
-						<div class="flex align-middle">
+						<div class="flex align-middle items-end">
 							<p class="flex-1 text-sm text-muted-foreground p-1" transition:name={`${entry.slug}-description`}>
 								{frontmatter.description}
 							</p>
 							<p
-								class="text-sm rounded-sm bg-destructive text-destructive-foreground p-1"
+								class="h-7 text-sm rounded-sm bg-destructive text-destructive-foreground p-1"
 								transition:name={`${entry.slug}-date-string`}
 							>
 								{frontmatter.publish_date?.toDateString()}
@@ -46,7 +58,7 @@ const { Content } = await entry.render();
 						</div>
 					</div>
 					<div class="px-4 mb-8">
-						<Content />
+						<Content components={components}/>
 					</div>
 				</div>
 				<Separator className="bg-destructive" />

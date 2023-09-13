@@ -1,6 +1,6 @@
 ---
-import { changeLanguage } from "i18next";
-import { localizePath } from "astro-i18next";
+import i18next, { changeLanguage } from "i18next";
+import { localizePath, interpolate } from "astro-i18next";
 import Layout from "../../../layouts/Layout.astro";
 import HeaderLayout from "../../../layouts/HeaderLayout.astro";
 import FooterLayout from "@/layouts/FooterLayout.astro";
@@ -15,7 +15,10 @@ changeLanguage("zh");
 export async function getStaticPaths({ paginate }: {
     paginate: any;
 }) {
-    const allNews = await getCollection("news");
+    const lang = "zh";
+    const allNews = await getCollection("news", ({ id }) => {
+        return id.startsWith(`${lang}/`) || id.startsWith("common/");
+    });
     return paginate(allNews, {
         pageSize: 2,
     });
@@ -27,7 +30,7 @@ const { page } = Astro.props;
 	<HeaderLayout>
 		<FooterLayout>
 			<main class="flex justify-center py-16 px-2 lg:px-16">
-				<div class="pl-6 w-full lg:w-2/3">
+				<div class="pl-6 w-full lg:w-4/5 xl:2/3">
 					<h1 class="font-serif font-bold text-xl m-2">News</h1>
 					<div class="m-0 p-0 w-[95%] align-baseline">
 						<ul
@@ -43,7 +46,7 @@ const { page } = Astro.props;
 											<label class="transform rotate-45 bg-foreground outline-zinc-50 outline-8 block mt-2 mr-2 mb-2 -ml-2 w-4 h-4 absolute top-0 left-8" />
 											<a
 												href={localizePath(
-													"/news/" + post.slug,
+													"/news/" + post.slug.split("/").pop(),
 												)}
 												class="block bg-transparent rounded-md ml-14 hover:bg-muted"
 											>
