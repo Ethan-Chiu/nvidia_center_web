@@ -31,7 +31,7 @@ const { page } = Astro.props;
 	<HeaderLayout>
 		<FooterLayout>
 			<main class="flex justify-center py-16 px-2 lg:px-16">
-				<div class="pl-6 w-full lg:w-4/5 xl:2/3">
+				<div class="pl-0 sm:pl-8 w-full lg:w-4/5 xl:2/3">
 					<h1 class="font-serif font-bold text-2xl m-2">{t("news.content.title")}</h1>
 					<div class="m-0 p-0 w-[95%] align-baseline">
 						<ul
@@ -51,7 +51,7 @@ const { page } = Astro.props;
 												)}
 												class="block bg-transparent rounded-md ml-14 hover:bg-muted"
 											>
-												<div class="py-4 pr-8 pl-8 relative w-full">
+												<div class="py-4 px-0 sm:px-8 relative w-full">
 													<p class="inline-block border-y-2 border-foreground font-mono text-foreground" transition:name={`${post.slug}-date-string`}>
 														{" "}
 														{post.data.publish_date.toLocaleString(currentLanguage)}{" "}
@@ -60,7 +60,7 @@ const { page } = Astro.props;
 														{" "}
 														{post.data.title}{" "}
 													</h3>
-													<div class="w-full bg-amber-300 bg-opacity-80 p-6 rounded-md" transition:name={`${post.slug}-description`}>
+													<div class="w-full bg-amber-300 bg-opacity-80 p-2 sm:p-6 rounded-md" transition:name={`${post.slug}-description`}>
 														<p class="text-foreground leading-normal">
 															{
 																post.data
