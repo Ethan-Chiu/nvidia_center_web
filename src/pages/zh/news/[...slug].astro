@@ -27,6 +27,7 @@ export async function getStaticPaths() {
         props: { entry },
     }));
 }
+const currentLanguage = i18next.language;
 const { entry } = Astro.props;
 const frontmatter = entry.data;
 const { Content } = await entry.render();
@@ -45,7 +46,7 @@ const { Content } = await entry.render();
 						<h1 class="text-4xl font-medium leading-none my-4" transition:name={`${entry.slug}-title`}>
 							{frontmatter.title}
 						</h1>
-						<div class="flex align-middle items-end">
+						<div class="flex gap-5 align-middle items-end">
 							<p class="flex-1 text-sm text-muted-foreground p-1" transition:name={`${entry.slug}-description`}>
 								{frontmatter.description}
 							</p>
@@ -53,7 +54,7 @@ const { Content } = await entry.render();
 								class="h-7 text-sm rounded-sm bg-destructive text-destructive-foreground p-1"
 								transition:name={`${entry.slug}-date-string`}
 							>
-								{frontmatter.publish_date?.toDateString()}
+								{frontmatter.publish_date?.toLocaleString(currentLanguage)}
 							</p>
 						</div>
 					</div>
