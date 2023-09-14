@@ -28,6 +28,7 @@ const contactData = await getEntry("contact", `${currentLanguage}/data`);
 							<CardDescription>{contactData?.data.contact_1_desc}</CardDescription>
 						</CardHeader>
 						<CardContent>
+							<section id="phone"/>
 							<div class="flex flex-wrap gap-2">
 								<div
 									class="w-24 flex rounded-sm bg-destructive text-destructive-foreground p-1 text-center align-middle justify-center"
@@ -37,6 +38,7 @@ const contactData = await getEntry("contact", `${currentLanguage}/data`);
 								<p class="flex-1 p-1 whitespace-nowrap break-words">{contactData?.data.phone_1}</p>
 							</div>
 							<Separator className="mb-4" />
+							<section id="email"/>
 							<div class="flex flex-wrap gap-2">
 								<div
 									class="w-24 flex rounded-sm bg-destructive text-destructive-foreground p-1 text-center align-middle justify-center"

@@ -55,7 +55,7 @@ const members = await getCollection("members", ({ id }) => {
 												title={member.data.name}
 												imageSrc={member.data.picture}
 											>
-												<slot name="body">
+												<div slot="body">
 													<div class="mb-1 mt-6 rounded-md border-2 border-border">
 														<p class="p-1 px-4 text-sm">
 															{member.data.title}
@@ -76,7 +76,7 @@ const members = await getCollection("members", ({ id }) => {
 															</p>
 														</div>
 													</div>
-												</slot>
+												</div>
 											</Card>
 										);
 									})
