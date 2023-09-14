@@ -20,13 +20,13 @@ const members = await getCollection("members", ({ id }) => {
 <Layout title={t("content.head.title")}>
 	<HeaderLayout>
 		<FooterLayout>
-			<main class="py-16 px-16 flex justify-center">
+			<main class="py-16 px-4 sm:px-16 flex justify-center">
 				<div class="w-full lg:w-2/3">
 					<h1 class="font-serif font-bold text-2xl m-2">
 						{t("members.content.title")}
 					</h1>
 					<div class="my-8">
-						<ul class="grid xl:grid-cols-2 gap-4 p-0">
+						<ul class="grid 2xl:grid-cols-2 gap-4 p-0">
 							{
 								members
 									.sort((a, b): number => {
@@ -54,22 +54,21 @@ const members = await getCollection("members", ({ id }) => {
 												href={member.data.link}
 												title={member.data.name}
 												imageSrc={member.data.picture}
-												description={member.data.title}
 											>
-												<div slot="body">
-													<div class="mt-6 mb-1 border-2 border-border rounded-md">
-														<p class="px-4 h-8 p-1 text-sm whitespace-nowrap break-words">
+												<slot name="body">
+													<div class="mb-1 mt-6 rounded-md border-2 border-border">
+														<p class="p-1 px-4 text-sm">
 															{member.data.title}
 														</p>
 													</div>
-													<div class="mb-1 border-2 border-border rounded-md">
-														<div class="flex h-8 flex-wrap gap-2">
-															<p class="rounded-md text-sm text-foreground p-1 text-center">
-																<Mail className="inline mx-2" />
+													<div class="mb-1 rounded-md border-2 border-border">
+														<div class="flex flex-wrap gap-2">
+															<p class="rounded-md p-1 text-center text-sm text-foreground">
+																<Mail className="mx-2 inline" />
 																Email
 															</p>
 															<Separator orientation="vertical" />
-															<p class="p-1 text-sm whitespace-nowrap break-words">
+															<p class="whitespace-nowrap break-words p-1 text-sm">
 																{
 																	member.data
 																		.email
@@ -77,7 +76,7 @@ const members = await getCollection("members", ({ id }) => {
 															</p>
 														</div>
 													</div>
-												</div>
+												</slot>
 											</Card>
 										);
 									})
