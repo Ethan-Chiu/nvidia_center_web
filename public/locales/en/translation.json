@@ -27,15 +27,21 @@
             "title": "Members"
         },
         "content": {
-            "title": "Members" 
+            "title": "Members"
         }
+    },
+    "card": {
+        "visit": "Visit",
+        "s_web": "'s website!"
     },
     "news": {
         "head": {
             "title": "News"
         },
         "content": {
-            "title": "News" 
+            "title": "News",
+            "previous": "Previous",
+            "next": "Next"
         }
     },
     "contact": {

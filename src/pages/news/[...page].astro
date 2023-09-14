@@ -23,6 +23,7 @@ export async function getStaticPaths({ paginate }: {
         pageSize: 2,
     });
 }
+const currentLanguage = i18next.language;
 const { page } = Astro.props;
 ---
 
@@ -31,7 +32,7 @@ const { page } = Astro.props;
 		<FooterLayout>
 			<main class="flex justify-center py-16 px-2 lg:px-16">
 				<div class="pl-6 w-full lg:w-4/5 xl:2/3">
-					<h1 class="font-serif font-bold text-xl m-2">{t("news.content.title")}</h1>
+					<h1 class="font-serif font-bold text-2xl m-2">{t("news.content.title")}</h1>
 					<div class="m-0 p-0 w-[95%] align-baseline">
 						<ul
 							class="relative before:bg-foreground before:-ml-[1px] before:absolute before:top-0 before:left-8 before:w-[3px] before:h-full"
@@ -53,7 +54,7 @@ const { page } = Astro.props;
 												<div class="py-4 pr-8 pl-8 relative w-full">
 													<p class="inline-block border-y-2 border-foreground font-mono text-foreground" transition:name={`${post.slug}-date-string`}>
 														{" "}
-														{post.data.publish_date.toDateString()}{" "}
+														{post.data.publish_date.toLocaleString(currentLanguage)}{" "}
 													</p>
 													<h3 class="font-semibold text-lg" transition:name={`${post.slug}-title`}>
 														{" "}
@@ -87,11 +88,11 @@ const { page } = Astro.props;
 									)}
 									href={page.url.prev}
 								>
-									Previous
+									{t("news.content.previous")}
 								</a>
 							) : (
 								<Button variant="outline" size="sm" disabled>
-									Previous
+									{t("news.content.previous")}
 								</Button>
 							)
 						}
@@ -106,11 +107,11 @@ const { page } = Astro.props;
 									)}
 									href={page.url.next}
 								>
-									Next
+									{t("news.content.next")}
 								</a>
 							) : (
 								<Button variant="outline" size="sm" disabled>
-									Next
+									{t("news.content.next")}
 								</Button>
 							)
 						}

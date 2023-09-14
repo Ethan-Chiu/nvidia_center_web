@@ -1,8 +1,9 @@
 Logging level: Normal
-Configurations cached at c:\Users\ethan\AppData\Roaming\Code\User\workspaceStorage\31dd075fda71d7b2dbbed0897e8162ab\ms-vscode.makefile-tools\configurationCache.log
+Configurations cached at /Users/ethan/Library/Application Support/Code/User/workspaceStorage/c103973b8827df4c303e91a0ac99db20/ms-vscode.makefile-tools/configurationCache.log
 No path to the makefile is defined in the settings file.
 No folder path to the makefile is defined in the settings file.
 Always pre-configure: false
+Always post-configure: false
 Dry-run switches: '--always-make', '--keep-going', '--print-directory'
 No current launch configuration is set in the workspace state.
 Default launch configuration: MIMode = undefined,
@@ -18,6 +19,5 @@ Build before launch: true
 Clear output before build: true
 Ignore directory commands: true
 compile_commands.json path: null
-Deduced command 'make.exe ' for configuration "Default"
-Make was not given any path in settings and is also not found on the environment path.
+Deduced command 'make ' for configuration "Default"
 The makefile entry point was not found. Make sure it exists at the location defined by makefile.makefilePath, makefile.configurations[].makefilePath, makefile.makeDirectory, makefile.configurations[].makeDirectoryor in the root of the workspace.

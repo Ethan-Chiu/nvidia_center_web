@@ -10,6 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
+import { useTranslation } from "react-i18next";
 
 interface Props extends astroHTML.JSX.SelectHTMLAttributes {
 	title: string;
@@ -25,6 +26,8 @@ export default function Card({
 	imageSrc,
 	body,
 }: Props) {
+	const { t } = useTranslation<string>("translation");
+
 	return (
 		<HoverCard openDelay={700}>
 			<li className="link-card">
@@ -65,7 +68,7 @@ export default function Card({
 						className="absolute -top-8 left-3"
 						variant="destructive"
 					>
-						Visit {title}'s website!
+						{ `${t("card.visit")} ${title} ${t("card.s_web")}`}
 					</Badge>
 					<iframe src={href}></iframe>
 				</div>

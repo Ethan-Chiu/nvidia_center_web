@@ -27,15 +27,21 @@
             "title": "成員"
         },
         "content": {
-            "title": "成員" 
+            "title": "成員"
         }
+    },
+    "card": {
+        "visit": "前往",
+        "s_web": "的網頁！"
     },
     "news": {
         "head": {
             "title": "公告信息"
         },
         "content": {
-            "title": "公告信息" 
+            "title": "公告信息",
+            "previous": "上一頁",
+            "next": "下一頁"
         }
     },
     "contact": {
