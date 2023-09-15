@@ -17,7 +17,7 @@ const contactData = await getEntry("contact", `${currentLanguage}/data`);
 <Layout title={t("contact.head.title")}>
 	<HeaderLayout>
 		<FooterLayout>
-			<div class="py-16 px-8 md:px-16 flex justify-center">
+			<div class="py-16 px-4 sm:px-8 md:px-16 flex justify-center">
 				<div class="w-full lg:w-2/3">
 					<h1 class="font-serif font-bold text-4xl mb-4">
 						{t("contact.content.title")}
@@ -25,27 +25,45 @@ const contactData = await getEntry("contact", `${currentLanguage}/data`);
 					<Card className="my-4">
 						<CardHeader>
 							<CardTitle>{contactData?.data.contact_1}</CardTitle>
-							<CardDescription>{contactData?.data.contact_1_desc}</CardDescription>
+							<CardDescription>
+								{contactData?.data.contact_1_desc}
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
-							<section id="phone"/>
+							<section id="phone"></section>
 							<div class="flex flex-wrap gap-2">
 								<div
 									class="w-24 flex rounded-sm bg-destructive text-destructive-foreground p-1 text-center align-middle justify-center"
 								>
-									<Phone className="inline w-5"/><div class="inline px-2">{t("contact.content.phone")}</div>
+									<Phone className="inline w-5" /><div
+										class="inline px-2"
+									>
+										{t("contact.content.phone")}
+									</div>
 								</div>
-								<p class="flex-1 p-1 whitespace-nowrap break-words">{contactData?.data.phone_1}</p>
+								<p
+									class="flex-1 p-1 whitespace-nowrap break-words"
+								>
+									{contactData?.data.phone_1}
+								</p>
 							</div>
 							<Separator className="mb-4" />
-							<section id="email"/>
+							<section id="email"></section>
 							<div class="flex flex-wrap gap-2">
 								<div
 									class="w-24 flex rounded-sm bg-destructive text-destructive-foreground p-1 text-center align-middle justify-center"
 								>
-									<Mail className="inline w-5"/><div class="inline px-2">{t("contact.content.email")}</div>
+									<Mail className="inline w-5" /><div
+										class="inline px-2"
+									>
+										{t("contact.content.email")}
+									</div>
 								</div>
-								<p class="flex-1 p-1 whitespace-nowrap break-words">{contactData?.data.email_1}</p>
+								<p
+									class="flex-1 p-1 whitespace-nowrap break-words"
+								>
+									{contactData?.data.email_1}
+								</p>
 							</div>
 							<Separator className="mb-4" />
 						</CardContent>
@@ -55,16 +73,26 @@ const contactData = await getEntry("contact", `${currentLanguage}/data`);
 					<Card className="my-4">
 						<CardHeader>
 							<CardTitle>{contactData?.data.contact_2}</CardTitle>
-							<CardDescription>{contactData?.data.contact_2_desc}</CardDescription>
+							<CardDescription>
+								{contactData?.data.contact_2_desc}
+							</CardDescription>
 						</CardHeader>
 						<CardContent>
 							<div class="flex flex-wrap gap-2">
 								<div
 									class="w-24 flex rounded-sm bg-destructive text-destructive-foreground p-1 text-center align-middle justify-center"
 								>
-									<Phone className="inline w-5"/><div class="inline px-2">{t("contact.content.phone")}</div>
+									<Phone className="inline w-5" /><div
+										class="inline px-2"
+									>
+										{t("contact.content.phone")}
+									</div>
 								</div>
-								<p class="flex-1 p-1 whitespace-nowrap break-words">{contactData?.data.phone_2}</p>
+								<p
+									class="flex-1 p-1 whitespace-nowrap break-words"
+								>
+									{contactData?.data.phone_2}
+								</p>
 							</div>
 							<Separator className="mb-4" />
 						</CardContent>

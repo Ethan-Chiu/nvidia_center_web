@@ -17,29 +17,47 @@ const Content = (await descriptionData?.render())?.Content;
 <Layout title={t("home.head.title")}>
 	<HeaderLayout>
 		<FooterLayout>
-			<main class="pt-8 pb-16 px-4 sm:px-16 flex flex-col justify-center items-center">
-				<div class="w-full justify-between items-stretch lg:w-2/3 lg:flex gap-10 my-6">
+			<main
+				class="pt-8 pb-16 px-4 sm:px-16 flex flex-col justify-center items-center"
+			>
+				<div
+					class="w-full justify-between items-stretch lg:w-2/3 lg:flex gap-10 my-6"
+				>
 					<div class="flex flex-col gap-6 max-w-lg my-6 lg:gap-12">
 						<h1 class="font-serif font-bold text-4xl">
 							{t("home.content.title")}
 						</h1>
 						<div class="flex gap-x-4">
-							<a href={localizePath("/news/news-1")} class="bg-destructive py-2 px-4 sm:px-8 rounded-md text-destructive-foreground whitespace-nowrap overflow-hidden overflow-ellipsis">
+							<a
+								href={localizePath("/news/news-1")}
+								class="bg-destructive py-2 px-4 sm:px-8 rounded-md text-destructive-foreground whitespace-nowrap overflow-hidden overflow-ellipsis"
+							>
 								{t("home.content.apply")}
 							</a>
-							<a href={localizePath("/#description")} class="border-destructive border-2 py-2 px-4 sm:px-8 rounded-md text-foregound whitespace-nowrap overflow-hidden overflow-ellipsis">
+							<a
+								href={localizePath("/#description")}
+								class="border-destructive border-2 py-2 px-4 sm:px-8 rounded-md text-foregound whitespace-nowrap overflow-hidden overflow-ellipsis"
+							>
 								{t("home.content.learn_more")}
 							</a>
 						</div>
 					</div>
-					<div class="w-[45%] min-w-[200px] max-w-sm ml-auto my-8 flex items-end align-bottom">
-						<div class="relative w-full aspect-square bg-primary-foreground">
-							<ImageWithLoad client:load className="w-full h-full object-cover p-2 border-2 border-foreground rounded-md" src="https://logowik.com/content/uploads/images/national-taiwan-university7019.jpg"/>
+					<div
+						class="w-[45%] min-w-[200px] max-w-sm ml-auto my-8 flex items-end align-bottom"
+					>
+						<div
+							class="relative w-full aspect-square bg-primary-foreground"
+						>
+							<ImageWithLoad
+								client:load
+								className="w-full h-full object-cover p-2 border-2 border-foreground rounded-md"
+								src="https://logowik.com/content/uploads/images/national-taiwan-university7019.jpg"
+							/>
 						</div>
 					</div>
 				</div>
 				<div class="w-full lg:w-2/3">
-					<section id="description"/>
+					<section id="description"></section>
 					<h1 class="font-serif font-bold text-3xl m-2">
 						{t("home.content.description")}
 					</h1>
@@ -47,7 +65,7 @@ const Content = (await descriptionData?.render())?.Content;
 						class="bg-secondary w-full p-4 rounded-md text-foreground"
 					>
 						<p>
-							{Content && <Content /> }
+							{Content && <Content />}
 						</p>
 					</div>
 
