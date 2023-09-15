@@ -11,6 +11,7 @@ import { ExternalLink, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import { useTranslation } from "react-i18next";
+import ImageWithLoad from "../ImageWithLoad";
 
 interface Props extends astroHTML.JSX.SelectHTMLAttributes {
 	title: string;
@@ -23,16 +24,17 @@ export default function Card({ href, title, imageSrc, body }: Props) {
 	const { t } = useTranslation<string>("translation");
 
 	return (
-		<HoverCard openDelay={700}>
+		<HoverCard key={imageSrc} openDelay={700}>
 			<li className="link-card">
 				<div className="w-full rounded-md bg-secondary leading-normal">
 					<div className="flex flex-col h-full w-full items-center justify-center sm:flex-row sm:items-start">
 						<div className="w-32 shrink-0">
-							<img
-								className="h-40 w-32 -translate-y-4 transform rounded-md border-4 border-ring object-cover shadow-2xl"
-								src={imageSrc}
-								alt={title}
-							/>
+							<div className="relative h-40 w-32 -translate-y-4 transform">
+								<ImageWithLoad key={imageSrc} className="object-cover rounded-md border-4 border-ring shadow-2xl"
+									src={imageSrc}
+									alt={title}
+								/>
+							</div>
 						</div>
 						<div className="grow flex-col px-4 text-foreground">
 							<p className="text-center text-xl font-bold">

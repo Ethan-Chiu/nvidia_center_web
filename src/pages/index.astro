@@ -5,6 +5,7 @@ import { getCollection, getEntry } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import HeaderLayout from "../layouts/HeaderLayout.astro";
 import FooterLayout from "@/layouts/FooterLayout.astro";
+import ImageWithLoad from "@/components/ImageWithLoad";
 
 changeLanguage("en");
 
@@ -31,8 +32,10 @@ const Content = (await descriptionData?.render())?.Content;
 							</a>
 						</div>
 					</div>
-					<div class="w-[60%] min-w-[200px] max-w-sm ml-auto my-8 flex items-end align-bottom">
-						<img class="bg-primary-foreground p-2 border-2 border-foreground rounded-md" src="https://logowik.com/content/uploads/images/national-taiwan-university7019.jpg"/>
+					<div class="w-[45%] min-w-[200px] max-w-sm ml-auto my-8 flex items-end align-bottom">
+						<div class="relative w-full aspect-square bg-primary-foreground">
+							<ImageWithLoad client:load className="w-full h-full object-cover p-2 border-2 border-foreground rounded-md" src="https://logowik.com/content/uploads/images/national-taiwan-university7019.jpg"/>
+						</div>
 					</div>
 				</div>
 				<div class="w-full lg:w-2/3">
