@@ -12,6 +12,12 @@ changeLanguage("zh");
 const currentLanguage = i18next.language;
 const descriptionData = await getEntry("home", `${currentLanguage}/description`);
 const Content = (await descriptionData?.render())?.Content;
+const __lang = "zh";
+const allNews = await getCollection("news", ({ id }) => {
+    return id.startsWith(`${__lang}/`) || id.startsWith("common/");
+});
+allNews.sort((a, b) => -(new Date(a.data.publish_date).getTime() - new Date(b.data.publish_date).getTime()));
+const latest_news = allNews[0];
 ---
 
 <Layout title={t("home.head.title")}>
@@ -58,18 +64,31 @@ const Content = (await descriptionData?.render())?.Content;
 				</div>
 				<div class="w-full lg:w-2/3">
 					<section id="description"></section>
-					<h1 class="font-serif font-bold text-3xl m-2">
-						{t("home.content.description")}
-					</h1>
-					<div
-						class="bg-secondary w-full p-4 rounded-md text-foreground"
-					>
-						<p>
-							{Content && <Content />}
-						</p>
+					<div class="m-2">
+						<h1 class="font-serif font-bold text-3xl">
+							{t("home.content.description")}
+						</h1>
+						<div
+							class="bg-secondary w-full p-4 rounded-md text-foreground"
+						>
+							<p>
+								{Content && <Content />}
+							</p>
+						</div>
 					</div>
 
-					<!-- <h1 class="font-serif font-bold text-xl m-2">News</h1> -->
+					<section id="news"></section>
+					<div class="mx-2 my-2">
+						<h1 class="font-serif font-bold text-3xl mt-8">
+							{t("home.content.latest_news")}
+						</h1>
+						<a
+							href={localizePath(`/news/${latest_news.slug.split("/").pop()}`)}
+							class="whitespace-nowrap overflow-hidden overflow-ellipsis"
+						>
+							<div class="rounded-sm border-4 border-double p-4 font-bold hover:border-destructive transition-all">{latest_news.data.title}</div>
+						</a>
+					</div>
 				</div>
 			</main>
 		</FooterLayout>
