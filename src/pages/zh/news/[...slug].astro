@@ -13,10 +13,11 @@ import H3 from "@/components/markdown_components/H3.astro";
 import H4 from "@/components/markdown_components/H4.astro";
 import ImageRaw from "@/components/markdown_components/ImageRaw.astro";
 import { Image } from "astro:assets";
+import Li from "@/components/markdown_components/Li.astro";
 
 changeLanguage("zh");
 
-const components = { a: A, blockquote: Blockquote, h1: H1, h2: H2, h3: H3, h4: H4 };
+const components = { a: A, blockquote: Blockquote, h1: H1, h2: H2, h3: H3, h4: H4, li: Li };
 export async function getStaticPaths() {
     const __lang = "zh";
     const newsEntries = await getCollection("news", ({ id }) => {

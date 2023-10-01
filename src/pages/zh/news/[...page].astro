@@ -19,6 +19,7 @@ export async function getStaticPaths({ paginate }: {
     const allNews = await getCollection("news", ({ id }) => {
         return id.startsWith(`${__lang}/`) || id.startsWith("common/");
     });
+    allNews.sort((a, b) => -(new Date(a.data.publish_date).getTime() - new Date(b.data.publish_date).getTime()));
     return paginate(allNews, {
         pageSize: 2,
     });

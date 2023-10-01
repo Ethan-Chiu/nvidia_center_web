@@ -1,0 +1,9 @@
+---
+const props = Astro.props;
+---
+<ul {...props} class="text-foreground my-2">
+  <li class="flex justify-start">
+    <span class="bg-destructive opacity-80 p-0.5 mr-2 rounded-full"></span>
+    <slot /> 
+  </li>
+</ul>
