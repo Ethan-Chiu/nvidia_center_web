@@ -61,21 +61,23 @@ const members = await getCollection("members", ({ id }) => {
 															{member.data.title}
 														</p>
 													</div>
-													<div class="mb-1 rounded-md border-2 border-border">
-														<div class="flex flex-wrap gap-2">
-															<p class="rounded-md p-1 text-center text-sm text-foreground">
-																<Mail className="mx-2 inline" />
-																Email
-															</p>
-															<Separator orientation="vertical" />
-															<p class="whitespace-nowrap break-words p-1 text-sm">
-																{
-																	member.data
-																		.email
-																}
-															</p>
+													{ member.data.email != null && 
+														<div class="mb-1 rounded-md border-2 border-border">
+															<div class="flex flex-wrap gap-2">
+																<p class="rounded-md p-1 text-center text-sm text-foreground">
+																	<Mail className="mx-2 inline" />
+																	Email
+																</p>
+																<Separator orientation="vertical" />
+																<p class="whitespace-nowrap break-words p-1 text-sm">
+																	{
+																		member.data
+																			.email
+																	}
+																</p>
+															</div>
 														</div>
-													</div>
+													}
 												</div>
 											</Card>
 										);
