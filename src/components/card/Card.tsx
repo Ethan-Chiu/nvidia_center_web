@@ -15,8 +15,8 @@ import ImageWithLoad from "../ImageWithLoad";
 
 interface Props extends astroHTML.JSX.SelectHTMLAttributes {
 	title: string;
-	href: string;
-	imageSrc: string;
+	href?: string | null;
+	imageSrc?: string | null;
 	body?: ReactNode;
 }
 
@@ -29,12 +29,14 @@ export default function Card({ href, title, imageSrc, body }: Props) {
 				<div className="w-full rounded-md bg-secondary leading-normal">
 					<div className="flex flex-col h-full w-full items-center justify-center sm:flex-row sm:items-start">
 						<div className="w-32 shrink-0">
-							<div className="relative h-40 w-32 -translate-y-4 transform">
-								<ImageWithLoad key={imageSrc} className="object-cover rounded-md border-4 border-ring shadow-2xl"
-									src={imageSrc}
-									alt={title}
-								/>
-							</div>
+							{ imageSrc != null && imageSrc != "" &&
+								<div className="relative h-40 w-32 -translate-y-4 transform">
+									<ImageWithLoad key={imageSrc} className="object-cover rounded-md border-4 border-ring shadow-2xl"
+										src={imageSrc}
+										alt={title}
+									/>
+								</div>
+							}
 						</div>
 						<div className="grow flex-col px-4 text-foreground">
 							<p className="text-center text-xl font-bold">
@@ -44,34 +46,38 @@ export default function Card({ href, title, imageSrc, body }: Props) {
 							{/* info */}
 							{body}
 							<div className="flex justify-end">
-								<HoverCardTrigger asChild>
-									<a
-										href={href}
-										target="_blank"
-										className={cn(
-											buttonVariants({ variant: "link" }),
-											"m-2 h-5 w-5 p-0",
-										)}
-									>
-										<ExternalLink />{" "}
-									</a>
-								</HoverCardTrigger>
+								{ href != null && href != "" &&
+									<HoverCardTrigger asChild>
+										<a
+											href={href}
+											target="_blank"
+											className={cn(
+												buttonVariants({ variant: "link" }),
+												"m-2 h-5 w-5 p-0",
+											)}
+										>
+											<ExternalLink />{" "}
+										</a>
+									</HoverCardTrigger>
+								}
 							</div>
 						</div>
 					</div>
 				</div>
 			</li>
-			<HoverCardContent className="m-0 w-full p-1" align="end">
-				<div className="relative p-0">
-					<Badge
-						className="absolute -top-8 left-3"
-						variant="destructive"
-					>
-						{`${t("card.visit")} ${title} ${t("card.s_web")}`}
-					</Badge>
-					<iframe src={href}></iframe>
-				</div>
-			</HoverCardContent>
+			{ href != null && href != "" &&
+				<HoverCardContent className="m-0 w-full p-1" align="end">
+					<div className="relative p-0">
+						<Badge
+							className="absolute -top-8 left-3"
+							variant="destructive"
+						>
+							{`${t("card.visit")} ${title} ${t("card.s_web")}`}
+						</Badge>
+						<iframe src={href}></iframe>
+					</div>
+				</HoverCardContent>
+			}
 		</HoverCard>
 	);
 }
