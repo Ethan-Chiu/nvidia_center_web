@@ -1,6 +1,10 @@
 ---
 const props = Astro.props;
 ---
-<a {...props} class="underline underline-offset-4 decoration-2 decoration-destructive text-foreground font-semibold">
-  <slot /> 
+
+<a
+	{...props}
+	class="underline underline-offset-4 decoration-2 decoration-destructive text-foreground font-semibold break-all"
+>
+	<slot />
 </a>
