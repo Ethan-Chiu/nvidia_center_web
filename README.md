@@ -50,7 +50,17 @@ This project follows a specific structure, and all news content is stored in the
 
 ## 🚀 Build and Deploy
 
-To build and deploy your project, follow these steps:
+To deploy to the nvcenter machine, run the following command:
+
+```bash
+yarn deploy
+```
+
+That's it! You're done.
+
+#### Build and deploy manually 
+
+If you prefer to do it manually, follow these steps:
 
 ```bash
 # Install dependencies
@@ -75,6 +85,7 @@ All commands are run from the root of the project, from a terminal:
 | `yarn dev`                | Starts local dev server at `localhost:3000`      |
 | `yarn build`              | Build your production site to `./dist/`          |
 | `yarn localize`           | Generate `zh` and `en` pages                     |
+| `yarn deploy`             | Run the ecosystem config with pm2                |
 
 
 ## 👀 More Information?

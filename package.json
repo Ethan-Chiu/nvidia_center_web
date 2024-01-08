@@ -8,7 +8,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "localize": "npx astro-i18next generate && node fix_localization.js"
+    "localize": "npx astro-i18next generate && node fix_localization.js",
+    "deploy:setup": "pm2 deploy ecosystem.config.cjs production setup",
+    "deploy": "pm2 deploy ecosystem.config.cjs production"
   },
   "dependencies": {
     "@astrojs/mdx": "^1.0.3",
