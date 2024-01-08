@@ -1,7 +1,6 @@
 module.exports = {
   apps : [{
     name: 'nvidia_ntu_ai_joint_research_center',
-    exec_interpreter: "bash",
     watch: false
   }],
 
