@@ -9,7 +9,7 @@ yarn install && yarn localize && yarn build
 
 # Remove all files in the directory except for 'source'
 shopt -s extglob
-rm -r !(source)
+rm -r -- !(source)
 
 # Copy files from 'source/dist' to the root directory
 cp -r ./source/dist/* .
