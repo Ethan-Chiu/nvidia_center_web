@@ -11,8 +11,7 @@ module.exports = {
       host : '140.112.21.13',
       ref  : 'origin/main',
       repo : 'https://github.com/Ethan-Chiu/workshop.git',
-      path : '/var/www/nvwebpage',
-      'pre-setup': 'shopt -s extglob && rm -r -- !(source)',
+      path : '/home/nvweb/nvwebpage_source',
       'post-deploy': 'chmod +x ./deploy.sh && ./deploy.sh',
     }
   }
