@@ -11,6 +11,6 @@ yarn install && yarn localize && yarn build
 rm -r /var/www/nvwebpage/*
 
 # Copy files from 'source/dist' to the root directory
-cp -r /home/nvweb/nvwebpage_source/source/dist/* /var/www/nvwebpage/
+cp -r ./source/dist/* /var/www/nvwebpage/
 
 echo "Cleanup and copy completed."
