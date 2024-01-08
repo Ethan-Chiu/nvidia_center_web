@@ -12,7 +12,8 @@ module.exports = {
       ref  : 'origin/main',
       repo : 'https://github.com/Ethan-Chiu/workshop.git',
       path : '/var/www/nvwebpage',
-      'post-deploy' : 'chmod +x ./deploy.sh && ./deploy.sh',
+      'pre-setup': 'shopt -s extglob && rm -r -- !(source)',
+      'post-deploy': 'chmod +x ./deploy.sh && ./deploy.sh',
     }
   }
 };
