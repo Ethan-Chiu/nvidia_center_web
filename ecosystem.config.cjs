@@ -12,7 +12,7 @@ module.exports = {
       ref  : 'origin/main',
       repo : 'https://github.com/Ethan-Chiu/workshop.git',
       path : '/var/www/nvwebpage',
-      'post-deploy' : './deploy.sh',
+      'post-deploy' : 'chmod +x ./deploy.sh && ./deploy.sh',
     }
   }
 };
