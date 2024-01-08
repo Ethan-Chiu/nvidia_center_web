@@ -12,6 +12,6 @@ shopt -s extglob
 rm -r !(source)
 
 # Copy files from 'source/dist' to the root directory
-cp -r source/dist/* .
+cp -r ./source/dist/* .
 
 echo "Cleanup and copy completed."
