@@ -53,6 +53,7 @@ export default function Card({ href, title, imageSrc, body }: Props) {
 								{href != null && href != "" && (
 									<HoverCardTrigger asChild>
 										<a
+											rel="noopener noreferrer"
 											href={href}
 											target="_blank"
 											className={cn(
