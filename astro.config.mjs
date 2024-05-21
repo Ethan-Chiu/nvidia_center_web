@@ -9,6 +9,7 @@ export default defineConfig({
   server: {
     port: 3000
   },
+  site: "https://nvcenter.ntu.edu.tw",
   integrations: [react(), astroI18next(), tailwind({
     applyBaseStyles: false
   }), mdx()]
