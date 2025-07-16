@@ -1,6 +1,6 @@
 {
     "nav": {
-        "title": "NVIDIA-NTU Research Center",
+        "title": "NVIDIA-NTU Innovation Center",
         "language": "Language",
         "home": "Home",
         "members": "Members",
@@ -8,15 +8,15 @@
         "contact": "Contact"
     },
     "footer": {
-        "title": "NVIDIA-NTU Artificial Intelligence Joint Research Center",
-        "description": "The NVIDIA-NTU Artificial Intelligence Joint Research Center was established in 2023 as a significant outcome of the collaboration between NVIDIA and National Taiwan University."
+        "title": "NVIDIA-NTU Artificial Intelligence Joint Innovation Center",
+        "description": "The NVIDIA-NTU Artificial Intelligence Joint Innovation Center was established in 2023 as a significant outcome of the collaboration between NVIDIA and National Taiwan University."
     },
     "home": {
         "head": {
-            "title": "NVIDIA-NTU Artificial Intelligence Joint Research Center"
+            "title": "NVIDIA-NTU Artificial Intelligence Joint Innovation Center"
         },
         "content": {
-            "title": "NVIDIA-NTU Artificial Intelligence Joint Research Center",
+            "title": "NVIDIA-NTU Artificial Intelligence Joint Innovation Center",
             "description": "Description",
             "apply": "Apply now!",
             "learn_more": "Learn more",
